@@ -1,0 +1,11 @@
+version: "3.7"
+
+services:
+  challenge:
+    image: ghcr.io/cybermouflons/ccsc2024/cross-checked-report:latest
+    restart: always
+    ports:
+      - 5000:5000
+    build:
+      context: ./setup
+      dockerfile: Dockerfile
