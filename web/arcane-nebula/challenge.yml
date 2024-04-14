@@ -1,0 +1,27 @@
+name: "Arcane Nebula"
+author: "koks"
+category: web
+
+description: |
+  We believe the machines are trying to waste our time.
+
+  Nevertheless, we have to persevere; retrieve the flag!
+
+value: 500
+type: dynamic_docker
+extra:
+  initial: 500
+  minimum: 100
+  decay: 25
+  redirect_type: http
+  compose_stack: !filecontents docker-compose.yml
+
+flags:
+  - CCSC{myst1cal_cosplAI_0r_wAIst3_of_tAIm3}
+
+tags:
+  - web
+  - medium
+
+state: visible
+version: "0.1"

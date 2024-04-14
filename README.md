@@ -44,6 +44,6 @@ Although some of the challenges may run as is, it is recommended that you have d
 
 ### web
 
-| Name                          | Author      |
-| ----------------------------- | ----------- |
-| [Placeholder](./web/.gitkeep) | Placeholder |
+| Name                                 | Author |
+| ------------------------------------ | ------ |
+| [Arcane Nebula](./web/arcane-nebula) | koks   |

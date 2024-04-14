@@ -1,0 +1,15 @@
+{
+  "name": "arcane-nebula",
+  "module": "index.ts",
+  "type": "module",
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/netmask": "^2.0.5"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "netmask": "^2.0.2"
+  }
+}
