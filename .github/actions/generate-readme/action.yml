@@ -1,0 +1,13 @@
+name: 'Generate Challenge README'
+description: 'Generates a README file with a table of challenges from provided directories'
+
+inputs:
+  directories:
+    description: 'Comma separated list of directories that contain a challenge.yml file'
+    required: true
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.directories }}

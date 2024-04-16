@@ -1,0 +1,28 @@
+name: Challenge Pipeline
+
+
+on:
+  push:
+    branches: ['master']
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lint:
+    uses: ./.github/workflows/lint.yml
+  
+  build:
+    uses: ./.github/workflows/build.yml
+    needs: lint
+
+  ctfd:
+    uses: ./.github/workflows/ctfd.yml
+    needs: build
+    secrets: inherit
+
+  readme:
+    uses: ./.github/workflows/readme.yml
+    needs: ctfd
+    secrets: inherit

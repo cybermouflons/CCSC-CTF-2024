@@ -1,0 +1,125 @@
+name: Build ans Push Challenges
+
+on: [workflow_call]  # allow this workflow to be called from other workflows
+
+env:
+  REGISTRY: ghcr.io
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      
+      - name: Challenge discovery
+        id: challenge-discovery
+        uses: ./.github/actions/discover-challenges
+        with:
+          base-dir: '.'
+
+      - name: Docker challenge discovery
+        id: docker-chall-discovery
+        run: |
+          IFS=' ' read -r -a chall_dirs <<< "${{ steps.challenge-discovery.outputs.dirs }}"
+          for dir in "${chall_dirs[@]}"; do
+              if [[ -f "${dir}/docker-compose.yml" ]]; then
+                  dirs+=("${dir}")
+              fi
+          done
+          echo "dirs=${dirs[*]}" >> "$GITHUB_OUTPUT"
+
+      - name: Docker challenges list
+        run: echo "${{ steps.docker-chall-discovery.outputs.dirs }}"
+      
+      - uses: actions/cache/restore@v3
+        id: challenges-hashes-cache
+        with:
+          path: .cache/last_hashes
+          key: last-hashes
+
+      - name: Create folder challenge hashes
+        id: challenge-hashes
+        run: |
+          if [ -d .cache ]; then
+            rm -f .cache/hashes
+          fi
+          mkdir -p .cache
+          touch .cache/hashes
+          IFS=' ' read -r -a challenge_dirs <<< "${{ steps.docker-chall-discovery.outputs.dirs }}"
+          for dir in "${challenge_dirs[@]}"; do
+            echo "$(find $dir -type f -print0 | sort -z | xargs -0 sha1sum | sha1sum | cut -d " " -f 1) $dir" >> .cache/hashes
+          done
+          sort .cache/hashes -o .cache/hashes
+      
+      - name: Find modified challenges
+        id: modified-chalenges
+        run: |
+          COMMIT_MESSAGE=$(git log --format=%B -n 1)
+          if [[ "$COMMIT_MESSAGE" == *"[no-cache]"* ]]; then
+            rm -f .cache/last_hashes
+          fi
+          touch .cache/last_hashes
+          changes=$(diff .cache/hashes .cache/last_hashes) || true
+          if [[ -n "$changes" ]]; then
+              changed_dirs=$(echo "$changes" | grep '<' | cut -d ' ' -f 3-)
+              echo "$changed_dirs"
+          fi
+          mv .cache/hashes .cache/last_hashes
+          echo dirs="${changed_dirs//$'\n'/ }" >> "$GITHUB_OUTPUT"
+      
+      - name: Changed challenges list
+        run: echo "${{ steps.modified-chalenges.outputs.dirs }}"
+      
+      - name: Log in to the Container registry
+        uses: docker/login-action@65b78e6e13532edd9afa3aa52ac7964289d1a9c1
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+          
+      - name: Build challenges
+        run: |
+          IFS=' ' read -r -a challenge_dirs <<< "${{ steps.modified-chalenges.outputs.dirs }}"
+          for challenge_dir in "${challenge_dirs[@]}"; do
+            docker compose -f $challenge_dir/docker-compose.yml build
+          done
+      
+      - name: Push challenges
+        run: |
+          IFS=' ' read -r -a challenge_dirs <<< "${{ steps.modified-chalenges.outputs.dirs }}"
+          for challenge_dir in "${challenge_dirs[@]}"; do
+            docker compose -f $challenge_dir/docker-compose.yml push
+          done
+  
+      - name: Clear cache
+        uses: actions/github-script@v6
+        with:
+          script: |
+            console.log("About to clear")
+            const cachesToDelete = ["last-hashes"];
+            const caches = await github.rest.actions.getActionsCacheList({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+            })
+            for (const cache of caches.data.actions_caches) {
+              if (cachesToDelete.includes(cache.key)) {
+                console.log(cache)
+                github.rest.actions.deleteActionsCacheById({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  cache_id: cache.id,
+                })
+              }
+            }
+            console.log("Clear completed")
+      
+      - name: Save folder challenge hashes
+        id: challenge-hashes-save
+        uses: actions/cache/save@v3
+        with:
+          path: .cache/last_hashes
+          key: last-hashes

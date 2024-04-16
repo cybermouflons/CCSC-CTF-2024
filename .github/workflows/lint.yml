@@ -1,0 +1,31 @@
+name: Lint Challenges
+
+on: [workflow_call]  # allow this workflow to be called from other workflows
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      
+      - name: Install ctfcli
+        run: |
+          python -m pip install --upgrade pip
+          pip install git+https://github.com/apogiatzis/ctfcli
+      
+      - name: Challenge discovery
+        id: challenge-discovery
+        uses: ./.github/actions/discover-challenges
+        with:
+          base-dir: '.'
+
+      - name: Challenge list
+        run: echo "${{ steps.challenge-discovery.outputs.dirs }}"
+
+      - name: Lint challenges
+        run: |
+          IFS=' ' read -r -a challenge_dirs <<< "${{ steps.challenge-discovery.outputs.dirs }}"
+          for challenge_dir in "${challenge_dirs[@]}"; do
+            ctf challenge lint $challenge_dir
+          done

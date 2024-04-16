@@ -1,0 +1,33 @@
+name: Generate README files
+
+on: [workflow_call]  # allow this workflow to be called from other workflows
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      
+      - name: Challenge discovery
+        id: challenge-discovery
+        uses: ./.github/actions/discover-challenges
+        with:
+          base-dir: '.'
+      
+      - name: Generate README.md 
+        id: generate-readme
+        uses: ./.github/actions/generate-readme
+        with:
+          directories: "${{ steps.challenge-discovery.outputs.dirs }}"
+      
+      - name: Sense check
+        run: cat README.md
+      
+      - name: Commit and push if it's not a pull request
+        if: github.event_name == 'push' && github.repository == github.event.repository.full_name
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add "./*README.md"
+          git diff --quiet && git diff --staged --quiet || (echo 'Committing changes...' && git commit -m "[GitHub Action] Update challenges in README.md" && git push)

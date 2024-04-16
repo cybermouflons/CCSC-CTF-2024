@@ -1,0 +1,24 @@
+name: 'Discover CTF challenges in a directory'
+description: 'Finds CTF challenge directories that contain a challenge.yml file'
+
+inputs:
+  base-dir:
+    description: 'Directory to discover challenges from'
+    required: true
+    default: '.'
+
+outputs:
+  dirs:
+    description: "Challenge directories"
+    value: ${{ steps.find-challenge-dirs.outputs.dirs }}
+  
+runs:
+  using: "composite"
+  steps:
+    - name: Find directories containing challenge.yml
+      id: find-challenge-dirs
+      run: |
+        dirs=$(find ${{ inputs.base_dir }} -name 'challenge.yml' -printf '%h\n' | sort -u)
+        echo dirs="${dirs//$'\n'/ }" >> "$GITHUB_OUTPUT"
+      shell: bash
+   
