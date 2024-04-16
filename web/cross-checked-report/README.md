@@ -5,7 +5,10 @@
 
 ## Description
 
-TODO
+  OrionTech is monitoring the area around their base.
+  They have set up a reporting system to alert security in case the guards spot something.
+
+  Have a look, maybe *you* could spot something instead?
 
 ## Run locally
 

@@ -1,0 +1,28 @@
+name: "Cross Checked Report"
+author: "YetAnotherAlt123"
+category: web
+
+description: |
+  OrionTech is monitoring the area around their base.
+  They have set up a reporting system to alert security in case the guards spot something.
+
+  Have a look, maybe *you* could spot something instead?
+
+value: 500
+type: dynamic_docker
+extra:
+  initial: 500
+  minimum: 100
+  decay: 25
+  redirect_type: http
+  compose_stack: !filecontents docker-compose.yml
+
+flags:
+  - CCSC{1f_1t_acc3pt5_1NpuT_1t_W!LL_b3_XSSed}
+
+tags:
+  - web
+  - medium
+
+state: visible
+version: "0.1"

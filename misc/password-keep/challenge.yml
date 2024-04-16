@@ -1,0 +1,29 @@
+name: "Password Keep"
+author: "YetAnotherAlt123"
+category: misc
+
+description: |
+  Our agents have broken into a cold storage vault belonging to OrionTech.
+  They have found a single file, and they cannot make out what it means.
+  
+  Can you help them?
+
+value: 500
+type: dynamic
+extra:
+  initial: 500
+  minimum: 100
+  decay: 25
+
+flags:
+  - CCSC{history_may_not_repeat_or_rhyme_but_it_is_always_useful}
+
+files:
+  - public/chall.7z
+
+tags:
+  - misc
+  - medium
+
+state: visible
+version: "0.1"

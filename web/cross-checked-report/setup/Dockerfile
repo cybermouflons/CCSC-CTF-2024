@@ -1,5 +1,5 @@
 FROM python:3-slim
-COPY app .
+COPY app /app
 WORKDIR /app
 RUN pip install -r requirements.txt
 RUN playwright install-deps
