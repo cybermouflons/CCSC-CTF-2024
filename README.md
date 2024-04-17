@@ -1,6 +1,6 @@
 # Cyprus Cyber Security Challenge CTF 2024
 
-**Dates:** xx/xx/2024 - xx/xx/2024
+**Dates:** 01/05/2024 - 12/05/2024
 
 ## Repository Structure
 
