@@ -1,0 +1,34 @@
+name: "Andromeda Cloud Storage"
+author: "feltf"
+category: crypto
+
+description: |
+  The Andromeda Cloud Storage v1.1.1 is a highly secure encrypted storage that
+  provides assurance to its users about their data. Go ahead and register your
+  account to store your data securely in an intergalactic way. After
+  registration, you will "soon" receive your personal symmetric key that we
+  randomly generate so that you can read the sweet secret flag.
+
+value: 500
+type: dynamic_docker
+extra:
+  initial: 500
+  minimum: 100
+  decay: 50
+  redirect_type: direct
+  compose_stack: !filecontents docker-compose.yml
+
+flags:
+  - ccsc{congrats.here.is.a.s1d3.ch4nNel?!}
+
+tags:
+  - crypto
+  - reverse
+  - medium-hard
+
+files:
+  - "public/server.py"
+  - "public/gen_part1.py"
+
+state: hidden
+version: "0.1"
