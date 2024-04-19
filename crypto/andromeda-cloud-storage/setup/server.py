@@ -153,6 +153,12 @@ class Server:
             return
 
         new_title = bytes.fromhex(msg["new_title"])
+        
+        if not all(0 <= b <= 127 for b in new_title):
+            self.send_message(
+                {"res": "Not a valid ASCII input (0 <= ord(char) <= 127)."}
+            )
+        
         if len(new_title) > self.MAX_TITLE_LEN:
             self.send_message(
                 {"res": "Title is longer than the max allowed length (255)"}
@@ -185,6 +191,12 @@ class Server:
 
         insert_idx = msg["insert_idx"]
         new_data = bytes.fromhex(msg["new_data"])
+
+        if not all(0 <= b <= 127 for b in new_data):
+            self.send_message(
+                {"res": "Not a valid ASCII input (0 <= ord(char) <= 127)."}
+            )
+
         user = self.registered_users[self.current_user]
         if insert_idx < 0:
             self.send_message({"res": "Please provide a valid insertion point."})
