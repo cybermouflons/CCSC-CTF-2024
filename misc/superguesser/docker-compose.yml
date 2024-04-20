@@ -1,0 +1,7 @@
+version: '3'
+services:
+  superguesser:
+    image: ghcr.io/cybermouflons/ccsc2024/superguesser:latest
+    build: ./setup/
+    ports:
+      - 9745:9745
