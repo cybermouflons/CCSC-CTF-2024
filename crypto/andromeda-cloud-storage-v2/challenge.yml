@@ -1,0 +1,34 @@
+name: "Andromeda Cloud Storage v2"
+author: "feltf"
+category: crypto
+
+description: |
+  The Andromeda Cloud Storage v2.0.0 is a highly secure encrypted storage that
+  provides assurance to its users about their data. Go ahead and register your
+  account to store your data securely in an intergalactic way. After
+  registration, you will "soon" receive your personal AES and MAC keys that we
+  randomly generate so that you can read the sweet secret flag.
+
+  New feature: Now we support the full range of bytes!!!
+
+value: 500
+type: dynamic_docker
+extra:
+  initial: 500
+  minimum: 100
+  decay: 50
+  redirect_type: direct
+  compose_stack: !filecontents docker-compose.yml
+
+flags:
+  - CCSC{p4dd1ng_oracl3_att4ck_due_to_flawed_implem3ntati0n_of_decryption!9f03268fc9363db00c7a43}
+
+tags:
+  - crypto
+  - medium-hard
+
+files:
+  - "public/server.py"
+
+state: hidden
+version: "0.1"
