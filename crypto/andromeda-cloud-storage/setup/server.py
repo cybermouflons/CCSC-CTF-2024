@@ -27,8 +27,9 @@ class Server:
         self.registered_users = {}
         self.current_user = None
 
-        self.MAX_TITLE_LEN = 2**8 - 1
-        self.MAX_FLAG_LEN = 2**8 - 1
+        self.version = b"v1.1.1 Andromeda"
+        self.MAX_TITLE_LEN = 2**7 - 1
+        self.MAX_FLAG_LEN = 2**7 - 1
 
     def send_message(self, msg: dict):
         self.stdout.write(json.dumps(msg).encode() + b"\n")
@@ -103,9 +104,9 @@ class Server:
         user["key"] = secrets.token_bytes(16)
         user.update(
             {
-                "version": b"v1.1.1 Andromeda",
+                "version": self.version,
                 "title": b"Placeholder",
-                "flag": FLAG_PART_2,
+                "flag": self.flag,
                 "data": b"",
             }
         )
@@ -161,7 +162,7 @@ class Server:
         
         if len(new_title) > self.MAX_TITLE_LEN:
             self.send_message(
-                {"res": "Title is longer than the max allowed length (255)"}
+                {"res": "Title is longer than the max allowed length (127)"}
             )
             return
         user = self.registered_users[self.current_user]
@@ -270,15 +271,26 @@ class Server:
         serialized_backup = Encoder.decode(encoded_backup)
         pos = 0
         version = serialized_backup[pos : pos + 16]
+        if version != self.version or len(version) != 16:
+            self.send_message({"res": "Invalid format."})
+            return
         pos += 16
-        title_len = serialized_backup[pos]
+        try:
+            title_len = serialized_backup[pos]
+        except:
+            self.send_message({"res": "Invalid format."})
+            return
         pos += 1
         if len(serialized_backup[pos:]) < title_len:
             self.send_message({"res": "Invalid format."})
             return
         title = serialized_backup[pos : pos + title_len]
         pos += title_len
-        flag_len = serialized_backup[pos]
+        try:
+            flag_len = serialized_backup[pos]
+        except:
+            self.send_message({"res": "Invalid format."})
+            return
         pos += 1
         if len(serialized_backup[pos:]) < flag_len:
             self.send_message({"res": "Invalid format."})
