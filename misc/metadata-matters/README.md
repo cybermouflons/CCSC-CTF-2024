@@ -1,7 +1,9 @@
 # Metadata Matters
 
-### Category: misc
-### Author: YetAnotherAlt123
+
+**Category**: misc
+
+**Author**: YetAnotherAlt123
 
 ## Description
 
@@ -14,3 +16,5 @@ root:$6$jM2.hLB7cxxe0Jik$ukjRJ6VORdRKdK0aBkKpjGzgId6OrR0srv.vrNlIj3gC8KTTk9nnf8b
 ```
 
 Cracking a good, long password seems impossible... unless you know something we don't?
+
+
