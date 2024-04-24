@@ -10,6 +10,7 @@ WORKDIR /root
 ADD bzImage .
 ADD bullseye.img .
 ADD bullseye.id_rsa .
+RUN chmod 600 bullseye.id_rsa
 
 ADD landlock.h .
 ADD infiltration.c .
