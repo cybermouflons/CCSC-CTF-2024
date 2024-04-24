@@ -1,4 +1,4 @@
-![CCSC CTF 2023](_assets/banner.png)
+![CCSC CTF 2024](_assets/ccsc_2024_banner.png)
 # Cyprus Cyber Security Challenge CTF 2024
 
 **Dates:** 01/05/2024 - 12/05/2024
