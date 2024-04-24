@@ -1,0 +1,25 @@
+name: "Infiltration"
+author: "neo"
+category: pwn
+
+description: |
+  You finally manage to infiltrate Project Echo's systems, but it looks like they are guarding the secret information pretty well. If only there was a way to dump the secret...
+
+value: 500
+type: dynamic_docker
+extra:
+  initial: 500
+  minimum: 100
+  decay: 25
+  redirect_type: direct
+  compose_stack: !filecontents docker-compose.yml
+
+flags:
+  - CCSC{c0r3dumps_4r3_us3ful_4_d3bugg1ng_4nd_stuff}
+
+tags:
+  - pwn
+  - medium
+
+state: visible
+version: "0.1"
