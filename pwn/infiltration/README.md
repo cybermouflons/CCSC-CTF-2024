@@ -9,7 +9,7 @@
 
 ## Description
 
-You finally manage to infiltrate Project Echo's systems, but it looks like they are guarding the secret information pretty well. If only there was a way to dump the secret...
+You finally managed to infiltrate Project Echo's systems, but it looks like they are guarding the secret information pretty well. If only there was a way to dump the secret...
 
 
 
