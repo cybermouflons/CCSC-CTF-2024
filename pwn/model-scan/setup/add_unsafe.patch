@@ -1,0 +1,12 @@
+diff --git a/scanner.py b/scanner.py
+index 0539736..9df706a 100644
+--- a/scanner.py
++++ b/scanner.py
+@@ -117,6 +117,7 @@ _unsafe_globals = {
+     "operator": "attrgetter",  # Ex of code execution: operator.attrgetter("system")(__import__("os"))("echo pwned")
+     "pickle": "*",
+     "_pickle": "*",
++    "picklescan": "*",
+ }
+ 
+ #

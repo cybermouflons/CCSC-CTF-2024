@@ -1,0 +1,28 @@
+name: "Model Scan"
+author: "neo"
+category: pwn
+
+description: |
+  The Project Echo agents are testing out some cutting-edge AI models. They made sure they scan them, so these annoying Andromeda hackers don't try anything tricky!
+
+value: 500
+type: dynamic_docker
+extra:
+  initial: 500
+  minimum: 100
+  decay: 25
+  redirect_type: direct
+  compose_stack: !filecontents docker-compose.yml
+
+flags:
+  - CCSC{why_4r3_w3_st1ll_us1ng_p1kl3?!?}
+
+tags:
+  - pwn
+  - easy
+
+files:
+  - "public/model_scan.tar.gz"
+
+state: visible
+version: "0.1"
