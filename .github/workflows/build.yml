@@ -12,7 +12,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
         with:
-          lfs: 'true'
+          lfs: 'false'
       
       - name: Challenge discovery
         id: challenge-discovery
