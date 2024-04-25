@@ -9,7 +9,7 @@
 
 ## Description
 
-The machines seem to live and breathe in binary. Use that against them and capture the flag.
+The machines live and breathe in binary. Search for ways to use that against them and capture the flag.
 
 
 
