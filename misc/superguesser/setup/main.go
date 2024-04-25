@@ -68,7 +68,7 @@ func handleConnection(conn net.Conn) {
 		case 1:
 			seed := time.Now().Unix()
 			random := rand.New(rand.NewSource(seed))
-			randomNumber, maxTries = random.Int63(), 5
+			randomNumber, maxTries = random.Int63(), 10
 			return
 		case 2:
 			seed := time.Now().UnixMilli()
@@ -78,7 +78,7 @@ func handleConnection(conn net.Conn) {
 		case 3:
 			seed := time.Now().UnixNano()
 			random := rand.New(rand.NewSource(seed))
-			randomNumber, maxTries = random.Int63(), 500
+			randomNumber, maxTries = random.Int63(), 100
 			return
 		}
 		return 0, 0
