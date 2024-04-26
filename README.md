@@ -50,5 +50,6 @@ Although some of the challenges may run as is, it is recommended that you have d
 | ---- | ------ |
 | [Arcane Nebula](./web/arcane-nebula) | koks |
 | [Cross Checked Report](./web/cross-checked-report) | YetAnotherAlt123 |
+| [Warriors Tech Shop](./web/warriors_tech_shop) | sAINT_barber |
 
 
