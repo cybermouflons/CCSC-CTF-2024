@@ -9,7 +9,7 @@ description: |
 
 
 value: 500
-type: dynamic_docker
+type: dynamic
 extra:
   initial: 500
   minimum: 100
