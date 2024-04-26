@@ -1,0 +1,31 @@
+name: "Ancient VM"
+author: "neo"
+category: reverse
+
+description: |
+  An Andromeda hacker was able to extract an ancient, rusty VM that belongs to Project Echo,
+  but he couldn't get the file that contains the secret information. Do you think
+  you can recover it?
+
+
+value: 500
+type: dynamic_docker
+extra:
+  initial: 500
+  minimum: 100
+  decay: 25
+
+flags:
+  - CCSC{r3v_s0m3_rust_4nd_s0lv3_s0m3_c0nstra1nt5}
+
+tags:
+  - reverse
+  - medium
+
+files:
+  - "public/program.txt"
+  - "public/output.txt"
+  - "public/vm"
+
+state: visible
+version: "0.1"
