@@ -1,0 +1,28 @@
+name: "hijack"
+author: "s3nn"
+category: pwn
+
+description: |
+  The hooks are gone. Find another way.
+
+value: 500
+type: dynamic_docker
+extra:
+  initial: 500
+  minimum: 100
+  decay: 25
+  redirect_type: direct
+  compose_stack: !filecontents docker-compose.yml
+
+flags:
+  - CCSC{if_y0u_Used-FSOP_which_technique?}
+
+tags:
+  - pwn
+  - hard
+
+files:
+  - "public/hijack.tar.gz"
+
+state: visible
+version: "0.1"
