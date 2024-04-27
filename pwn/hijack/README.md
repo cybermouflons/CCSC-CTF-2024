@@ -9,7 +9,7 @@
 
 ## Description
 
-The hooks are gone. Find another way.
+The hooks are all but gone. Find another way
 
 
 
