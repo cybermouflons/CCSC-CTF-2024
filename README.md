@@ -18,6 +18,7 @@ Although some of the challenges may run as is, it is recommended that you have d
 
 | Name | Author |
 | ---- | ------ |
+| [Identity Thief](./crypto/Identity_Thief) | tratrafe2 |
 | [Andromeda Cloud Storage](./crypto/andromeda-cloud-storage) | feltf |
 | [Andromeda Cloud Storage v2](./crypto/andromeda-cloud-storage-v2) | feltf |
 
