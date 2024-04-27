@@ -14,6 +14,7 @@ RUN tar xf image.tar.gz
 
 ADD bzImage .
 ADD bullseye.id_rsa .
+RUN chmod 600 bullseye.id_rsa
 
 ADD landlock.h .
 ADD infiltration.c .
