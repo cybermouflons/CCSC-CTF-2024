@@ -13,7 +13,6 @@ RUN gdown 1HqQfiKfTLs9Kci1-AGuCF5x2mhwWdirk
 RUN tar xf image.tar.gz
 
 ADD bzImage .
-ADD bullseye.img .
 ADD bullseye.id_rsa .
 
 ADD landlock.h .
