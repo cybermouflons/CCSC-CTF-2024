@@ -36,7 +36,7 @@ func init() {
 func main() {
 	port := os.Getenv("PORT")
 	if port == "" {
-		port = "7945"
+		port = "9745"
 	}
 	listener, err := net.Listen("tcp", ":"+port)
 	if err != nil {
