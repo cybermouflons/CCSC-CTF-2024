@@ -1,0 +1,28 @@
+name: "Identity Thief"
+author: "tratrafe2"
+category: crypto
+
+description: |
+  Someone stole our identity and every secret we had used! Luckily, we were able to retrieve some of the thief's code and output.
+
+value: 200
+type: dynamic
+extra:
+  initial: 200
+  minimum: 50
+  decay: 25
+
+flags:
+  - CCSC{Y0u_g0tt4_b3_c4r3fu11_wh3n_us1n9_f13ld_m4th3m4tics}
+
+files:
+  - public/main.sage
+  - public/output.txt
+
+tags:
+  - crypto
+  - easy
+  - medium
+
+state: visible
+version: "0.1"
