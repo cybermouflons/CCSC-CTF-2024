@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -O2 -g
+CFLAGS = -O2
 
 .PHONY = all
 

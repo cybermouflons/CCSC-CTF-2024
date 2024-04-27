@@ -18,6 +18,7 @@
 
 #define PAGE_SIZE 4096
 #define SHELLCODE_SIZE 512
+#define X32_SYSCALL_BIT 0x40000000
 
 #ifndef landlock_create_ruleset
 static inline int
@@ -114,8 +115,17 @@ void protect() {
 
 /* Define the BPF filter */
 struct sock_filter filter[] = {
+    /* Load architecture */
+    BPF_STMT(BPF_LD | BPF_W | BPF_ABS, offsetof(struct seccomp_data, arch)),
+    /* Check if x86-64 architecture */
+    BPF_JUMP(BPF_JMP | BPF_JEQ | BPF_K, AUDIT_ARCH_X86_64, 1, 0),
+    BPF_STMT(BPF_RET | BPF_K, SECCOMP_RET_KILL_PROCESS),
+
     /* Load syscall number */
     BPF_STMT(BPF_LD | BPF_W | BPF_ABS, (offsetof(struct seccomp_data, nr))),
+    /* Check if not X32 ABI */
+    BPF_JUMP(BPF_JMP | BPF_JGE | BPF_K, X32_SYSCALL_BIT, 0, 1),
+    BPF_STMT(BPF_RET | BPF_K, SECCOMP_RET_KILL_PROCESS),
 
     /* Allow read (syscall number 0) */
     BPF_JUMP(BPF_JMP | BPF_JEQ | BPF_K, SYS_read, 0, 1),
@@ -163,6 +173,7 @@ void setup() {
   printf("Don't try anything tricky ;)\n");
   system("rm infiltration");
   system("rm infiltration.c");
+  system("/bin/find /home/user -maxdepth 1 -type f -print0 | xargs -0 /bin/rm");
   prctl(PR_SET_DUMPABLE, 1);
   protect();
   landlock();
