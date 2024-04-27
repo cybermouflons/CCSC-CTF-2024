@@ -1,26 +1,14 @@
-# Warriors Tech Shop
 
-[![Try in PWD](https://raw.githubusercontent.com/play-with-docker/stacks/master/assets/images/button.png)](https://labs.play-with-docker.com/?stack=https://raw.githubusercontent.com/cybermouflons/CCSC-CTF-2023/master/web/warriors_tech_shop/docker-compose.yml)
-
-
-**Category**: web
-
-**Author**: sAINT_barber
-
-## Description
-
-description to be announced
+JWT forging with JKU header injection
 
 
+DNS rebinding to bypass a localhost filter
 
-## Run locally
+References
 
-Launch challenge:
-```
-curl -sSL https://raw.githubusercontent.com/cybermouflons/CCSC-CTF-2023/master/web/warriors_tech_shop/docker-compose.yml | docker compose -f - up -d
-```
+https://mojoauth.com/blog/jwt-validation-with-jwks-nodejs/#:~:text=Creating%20a%20JWKS%20endpoint&text=jose.-,JWK.,later%20to%20sign%20the%20tokens.
 
-Shutdown challenge:
-```
-curl -sSL https://raw.githubusercontent.com/cybermouflons/CCSC-CTF-2023/master/web/warriors_tech_shop/docker-compose.yml | docker compose -f - down
-```
+
+https://pem2jwk.vercel.app/
+
+https://stackoverflow.com/questions/47544724/is-there-an-equivalent-function-of-nslookup-command-in-node-js

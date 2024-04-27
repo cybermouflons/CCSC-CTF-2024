@@ -53,7 +53,7 @@ async function createToken(user){
 
         payload = JSON.stringify({
             id: user.id,
-            skill_points: user.skill_points
+            role: user.role
         })
     
 
@@ -74,9 +74,19 @@ async function createToken(user){
    
 }
 
+function isAdmin(req, res, next){
+
+    if(req.verified_token.role !== "admin"){
+        return res.status(401).json({ error: 'Only admin users allowed! Go away >_<' });
+    }
+
+    return next();
+}
+
 
 module.exports = {
     verifyToken,
-    createToken
+    createToken,
+    isAdmin
 };
 

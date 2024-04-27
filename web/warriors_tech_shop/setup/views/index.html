@@ -13,7 +13,7 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
     </head>
-    <body>
+    <body style="background-color: rgb(243, 243, 243);" >
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container px-4 px-lg-5">
@@ -21,6 +21,9 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="/">Home</a></li>
+                        {% if is_admin %}
+                        <li class="nav-item"><a class="nav-link" aria-current="page" href="/admin">Admin</a></li>
+                        {% endif %}
                         <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
                     </ul>
                 </div>
@@ -35,6 +38,12 @@
                 </div>
             </div>
         </header>
+
+        <div class="alert alert-secondary text-center container py-5 mt-4" role="alert">
+            <h4 class="fw-bolder">Welcome {{user.username}}</h4>
+            <p class="lead">You currently have ${{user.bank}} remaining in your bank account.</p>
+            <p class="lead">Purchase any item from our shop to arm yourself for the challenges ahead! Super Secret Flag can only be purchased by the elite</p>
+        </div>
         <!-- Section-->
         <section class="py-5">
             <div class="container px-4 px-lg-5 mt-5">
@@ -42,7 +51,7 @@
 
                     {% for item in items %}
                         <div class="col mb-5">
-                            <div class="card h-100">
+                            <div class="card shadow h-100">
                                 <!-- Product image-->
                                 <img class="card-img-top" src="/images/{{item.image}}"/>
                                 <!-- Product details-->
@@ -59,12 +68,12 @@
                                             <div class="bi-star-fill"></div>
                                         </div>
                                         <!-- Product price-->
-                                        {{ item.skill_points }}
+                                        ${{ item.price }}
                                     </div>
                                 </div>
                                 <!-- Product actions-->
                                 <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="item/{{item.id}}">Acquire</a></div>
+                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="item/{{item.id}}">Purchase</a></div>
                                 </div>
                             </div>
                         </div>

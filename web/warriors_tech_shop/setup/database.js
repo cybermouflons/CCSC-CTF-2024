@@ -20,7 +20,8 @@ class Database {
                 id         INTEGER NOT  NULL PRIMARY KEY AUTOINCREMENT,
                 username   VARCHAR(255) NOT NULL UNIQUE,
                 password   VARCHAR(255) NOT NULL,
-                skill_points         REAL NOT NULL
+                role       VARCHAR(255) NOT NULL,
+                bank       REAL NOT NULL
             );
         `);
 
@@ -31,9 +32,9 @@ class Database {
             name          VARCHAR(255) NOT NULL UNIQUE,
             description   VARCHAR(255) NOT NULL,
             image         VARCHAR(255) NOT NULL,
-            skill_points         REAL NOT NULL
+            price         REAL NOT NULL
         );
-        INSERT INTO items (name, description, image, skill_points) VALUES
+        INSERT INTO items (name, description, image, price) VALUES
             ('Cipher Keys', 'These are special encryption keys that can unlock hidden data caches or decrypt sensitive information crucial to dismantling Project Echo.', 'cipher_keys.png', 49.99),
             ('Virtual Reality Cloaks', 'Advanced cloaking devices that allow hackers to disguise their presence in virtual environments, making it harder for OrionTech''s surveillance systems to track them', 'virtual_reality_cloaks.png', 420.69),
             ('Neural Interface Chips', 'Implantable chips that enhance hackers'' cognitive abilities, granting them faster processing speeds and improved problem-solving capabilities when navigating through complex digital landscapes.', 'neural_interface_chips.png', 300),
@@ -61,11 +62,11 @@ class Database {
         });
     }
 
-    async register(user, pass, skill_points) {
+    async register(user, pass, role, bank) {
       return new Promise(async(resolve, reject) => {
           try {
-              let stmt = await this.db.prepare('insert into users (username, password, skill_points) values (?, ?, ?)');
-              resolve(await stmt.get(user, pass, skill_points));
+              let stmt = await this.db.prepare('insert into users (username, password, role, bank) values (?, ?, ?, ?)');
+              resolve(await stmt.get(user, pass, role, bank));
           } catch (e) {
               reject(e);
           }
@@ -79,6 +80,33 @@ class Database {
                 let row = await stmt.get(user);
                 resolve(row !== undefined);
             } catch(e) {
+                reject(e);
+            }
+        });
+    }
+
+    async get_user(id) {
+        return new Promise(async (resolve, reject) => {
+            try {
+                let stmt = await this.db.prepare('SELECT * FROM users WHERE id = ?');
+                resolve(await stmt.get(id));
+            } catch(e) {
+                reject(e);
+            }
+        });
+    }
+
+    async update_balance(id, balance) {
+        return new Promise(async (resolve, reject) => {
+            await this.db.run("BEGIN TRANSACTION");
+            try {        
+                let stmt = await this.db.prepare('update users set bank = ? where id = ?');
+                await stmt.run(balance, id);
+                await stmt.finalize();
+                await this.db.run("COMMIT");
+                resolve();
+            } catch(e) {
+                await this.db.run("ROLLBACK");
                 reject(e);
             }
         });

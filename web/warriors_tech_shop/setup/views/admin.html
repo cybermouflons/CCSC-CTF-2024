@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Item Acquired</title>
+        <title>Admin Page</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
         <!-- Bootstrap icons-->
@@ -26,15 +26,27 @@
                 </div>
             </div>
         </nav>
+
+        <div class="alert alert-secondary text-center container py-3 mt-4" role="alert">
+            <h4 class="fw-bolder">Welcome Admin user!</h4>
+        </div>
+
         <section class="">
             <div class="container py-5">
               <div class="row d-flex justify-content-center align-items-center">
                 <div class="col-12 col-md-8 col-lg-6 col-xl-5">
                   <div class="card bg-light shadow-lg rounded" style="border-radius: 1rem;">
-                    <img src="/images/{{item.image}}" class="card-img-top">
                     <div class="card-body p-5 text-center">
-                        <h4 class="card-title fw-bold mb-5">{{item.name}} Successfully Purchased!</h4>
-                        <p class="card-text">{{item.description}}</p>
+
+                        <h4 class="card-title fw-bold mb-3">Add Money</h4>
+                        <p class="card-text">Enter amount to add to your account:</p>
+                        <form method="post" action="/admin">
+                        
+                            <input name="bank" class="form-control" type="number">
+
+                            <button type="submit" class="form-control btn btn-outline-dark my-3">Add</button>
+                        </form>
+                        
                     </div>
                     <div class="card-footer text-center">
                         <a href="/" class="btn btn-light px-5">Back</a>

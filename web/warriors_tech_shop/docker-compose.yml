@@ -4,10 +4,17 @@ services:
 
   webapp:
     image: ghcr.io/cybermouflons/ccsc2024/warriors_tech_shop:latest # Add in prod
-    build: ./setup/
+    # build: ./setup/
     environment:
       host: localhost:3000
       flag: CCSC{w3_f0rg3_4nd_r3b1nd_0ur_0wn_t00ls}
     ports:
       - 3000:3000
+    # volumes:
+    #   - ./setup/middleware:/app/middleware
+    #   - ./setup/routes:/app/routes
+    #   - ./setup/static:/app/static
+    #   - ./setup/views:/app/views
+    #   - ./setup/database.js:/app/database.js
+    #   - ./setup/server.js:/app/server.js
 
