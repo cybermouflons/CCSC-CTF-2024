@@ -12,4 +12,4 @@ COPY flag.txt .
 COPY libc.so.6 .
 
 EXPOSE 1337
-CMD ["socat", "-v","TCP-LISTEN:1337,reuseaddr,fork,su=root", "EXEC:'/root/babytcache'"]
+CMD ["socat", "-v","TCP-LISTEN:1337,reuseaddr,fork,su=root", "EXEC:'/root/hijack'"]
