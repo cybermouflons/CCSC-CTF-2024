@@ -3,7 +3,7 @@ author: "s3nn"
 category: pwn
 
 description: |
-  The hooks are gone. Find another way.
+  The hooks are all but gone. Find another way
 
 value: 500
 type: dynamic_docker
