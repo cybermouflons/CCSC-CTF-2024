@@ -1,0 +1,28 @@
+name: "GOT Override"
+author: "s3nn"
+category: pwn
+
+description: |
+  You have been recruited by the Andromeda Initiative to foil OrionTech's Project Echo, a threat to global autonomy. Set in Cyprus, blend ancient lore with cyberpunk rebellion as you navigate virtual mazes. Exploit a critical vulnerability exposing the Global Offset Table (GOT) to dismantle OrionTech's scheme. Your keyboard is your weapon; your wit, your shield. Are you ready to become a legend in the cybersphere?
+
+value: 500
+type: dynamic_docker
+extra:
+  initial: 500
+  minimum: 100
+  decay: 25
+  redirect_type: direct
+  compose_stack: !filecontents docker-compose.yml
+
+flags:
+  - CCSC{if_Th1s_is_Your_First_Pwn_Feel_Pr0ud_otherwise_K33p_going}
+
+tags:
+  - pwn
+  - easy
+
+files:
+  - "public/got-override.tar.gz"
+
+state: visible
+version: "0.1"
