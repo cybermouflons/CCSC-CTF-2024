@@ -5,10 +5,10 @@ category: crypto
 description: |
   Someone stole our identity and every secret we had used! Luckily, we were able to retrieve some of the thief's code and output.
 
-value: 200
+value: 500
 type: dynamic
 extra:
-  initial: 200
+  initial: 500
   minimum: 50
   decay: 25
 
