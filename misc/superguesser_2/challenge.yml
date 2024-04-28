@@ -17,6 +17,9 @@ extra:
 flags:
   - CCSC{part2_m1lli5_n33d_som3_brains_and_s0me_luck}
 
+files:
+  - public/superguesser.zip
+
 tags:
   - misc
   - easy

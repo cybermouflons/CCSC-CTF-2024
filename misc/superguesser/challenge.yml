@@ -17,6 +17,9 @@ extra:
 flags:
   - CCSC{part1_sec0nds_and_s33ds_d0nt_m1x_t0gether}
 
+files:
+  - public/superguesser.zip
+
 tags:
   - misc
   - easy
