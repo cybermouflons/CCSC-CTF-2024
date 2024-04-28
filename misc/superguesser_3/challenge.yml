@@ -17,6 +17,9 @@ extra:
 flags:
   - CCSC{part3_nan0s_d0nt_c4re_bis3ct_is_1n_the_a1r}
 
+files:
+  - public/superguesser.zip
+
 tags:
   - misc
   - easy
