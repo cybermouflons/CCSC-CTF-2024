@@ -1,0 +1,14 @@
+version: '3'
+services:
+  backend-service:
+    # image: ghcr.io/cybermouflons/ccsc2024/microbuns-backend-service:latest
+    build: ./setup/backend-service/
+    ports:
+      - 8080:8080
+  users-service:
+    # image: ghcr.io/cybermouflons/ccsc2024/microbuns-users-service:latest
+    build: ./setup/users-service/
+  haiku-service:
+    # image: ghcr.io/cybermouflons/ccsc2024/microbuns-haiku-service:latest
+    build: ./setup/haiku-service/
+  

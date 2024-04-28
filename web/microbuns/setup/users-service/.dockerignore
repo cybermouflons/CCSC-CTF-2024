@@ -1,0 +1,6 @@
+.dockerignore
+Dockerfile*
+docker-compose*
+app/db.sqlite
+app/node_modules
+app/.gitignore

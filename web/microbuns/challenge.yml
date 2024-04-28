@@ -1,0 +1,28 @@
+name: "Microbuns"
+author: "koks"
+category: web
+
+description: |
+  I may be silicon but I can stil stuff my RAM with buns and appreciate poetry.
+
+value: 500
+type: dynamic_docker
+extra:
+  initial: 500
+  minimum: 100
+  decay: 25
+  redirect_type: http
+  compose_stack: !filecontents docker-compose.yml
+
+flags:
+  - CCSC{CybeR_r3alms_and_Anc1ent_v0w5}
+
+files:
+  - "public/microbuns.zip"
+
+tags:
+  - web
+  - medium
+
+state: visible
+version: "0.1"
