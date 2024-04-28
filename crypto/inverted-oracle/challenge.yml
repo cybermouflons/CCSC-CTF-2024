@@ -20,7 +20,7 @@ flags:
 
 tags:
   - crypto
-  - medium
+  - easy
 
 files:
   - "public/challenge.py"
