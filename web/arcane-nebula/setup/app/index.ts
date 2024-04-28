@@ -14,6 +14,17 @@ const server = Bun.serve({
       return new Response(Bun.file(import.meta.dir + index));
     }
 
+    if (url.pathname.endsWith("/ip-test-091827")) {
+      const ip1 = server.requestIP(req)?.address;
+      const xff = req.headers.get("x-forwarded-for");
+
+      const ss = `
+server.requestIP(req) -> ${ip1}
+xff -> ${xff}
+`;
+      return new Response(ss);
+    }
+
     if (url.pathname.endsWith("/spell")) {
       const reqIP = server.requestIP(req);
       const allowed = [
