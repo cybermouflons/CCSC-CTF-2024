@@ -40,6 +40,7 @@ Although some of the challenges may run as is, it is recommended that you have d
 
 | Name | Author |
 | ---- | ------ |
+| [GOT Override](./pwn/GOT-Override) | s3nn |
 | [hijack](./pwn/hijack) | s3nn |
 | [Infiltration](./pwn/infiltration) | neo |
 | [Model Scan](./pwn/model-scan) | neo |
