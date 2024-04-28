@@ -21,6 +21,7 @@ Although some of the challenges may run as is, it is recommended that you have d
 | [Andromeda Cloud Storage](./crypto/andromeda-cloud-storage) | feltf |
 | [Andromeda Cloud Storage v2](./crypto/andromeda-cloud-storage-v2) | feltf |
 | [Identity Thief](./crypto/identity-thief) | tratrafe2 |
+| [Inverted Oracle](./crypto/inverted-oracle) | rok0s |
 
 
 
