@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "inverted-oracle"
+version = "0.1.0"
+description = "Inverted Oracle crypto challenge for CCSC 2024"
+authors = ["Rok0s <rok0s@cybermouflons.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+cryptography = "^42.0.5"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

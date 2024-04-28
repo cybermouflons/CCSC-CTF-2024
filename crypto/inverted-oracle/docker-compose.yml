@@ -1,0 +1,13 @@
+version: "3.7"
+
+services:
+  challenge:
+    image: ghcr.io/cybermouflons/ccsc2024/inverted-orable:latest
+    restart: always
+    ports:
+      - 13373:13373
+    build:
+      context: ./setup
+      dockerfile: Dockerfile
+      labels: 
+        ctf.challenge.name: inverted-oracle
