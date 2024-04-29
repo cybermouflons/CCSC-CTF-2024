@@ -12,9 +12,6 @@ COPY uploads uploads
 COPY index.php index.php
 COPY upload.php upload.php
 
-# Populate challenge with orion_shell
-COPY bot_commands/orion_shell.php uploads/orion_shell.php 
-
 RUN chown -R www-data:www-data /var/www/html
 
 COPY entrypoint.sh /entrypoint.sh
