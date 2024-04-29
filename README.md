@@ -29,6 +29,7 @@ Although some of the challenges may run as is, it is recommended that you have d
 
 | Name | Author |
 | ---- | ------ |
+| [Asteroid Wars](./forensics/asteroid_wars) | sAINT_barber |
 | [Underground Watch - Part 2](./forensics/underground_watch_part_2) | sAINT_barber |
 
 
