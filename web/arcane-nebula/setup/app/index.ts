@@ -14,19 +14,14 @@ const server = Bun.serve({
       return new Response(Bun.file(import.meta.dir + index));
     }
 
-    if (url.pathname.endsWith("/ip-test-091827")) {
-      const ip1 = server.requestIP(req)?.address;
-      const xff = req.headers.get("x-forwarded-for");
-
-      const ss = `
-server.requestIP(req) -> ${ip1}
-xff -> ${xff}
-`;
-      return new Response(ss);
-    }
-
     if (url.pathname.endsWith("/spell")) {
-      const reqIP = server.requestIP(req);
+      const xff = req.headers
+        .get("x-forwarded-for")
+        ?.split(",")
+        .map((x) => x.trim());
+
+      const reqIP = xff ? xff[xff?.length - 1] : server.requestIP(req)?.address;
+
       const allowed = [
         "103.21.244.0/22",
         "103.22.200.0/22",
@@ -48,7 +43,7 @@ xff -> ${xff}
       ].map((s) => new Netmask(s));
 
       try {
-        if (allowed.some((a) => a.contains(reqIP?.address ?? ""))) {
+        if (allowed.some((a) => a.contains(reqIP ?? ""))) {
           const spell = "/views/spell.html";
           return new Response(Bun.file(import.meta.dir + spell));
         }

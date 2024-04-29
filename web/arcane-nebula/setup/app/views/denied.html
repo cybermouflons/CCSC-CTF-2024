@@ -33,13 +33,21 @@ const server = Bun.serve({
     }
 
     if (url.pathname.endsWith("/spell")) {
-      const reqIP = server.requestIP(req);
+      const xff = req.headers
+        .get("x-forwarded-for")
+        ?.split(",")
+        .map((x) => x.trim());
+
+      const reqIP = xff ? xff[xff?.length - 1] : server.requestIP(req)?.address;
+
       const allowed = [
         "103.21.244.0/22",
         "103.22.200.0/22",
         "103.31.4.0/22",
+        "104.16.0.0/12",
         "104.16.0.0/13",
         "104.24.0.0/14",
+        "104.28.0.0/14",
         "108.162.192.0/18",
         "131.0.72.0/22",
         "141.101.64.0/18",
@@ -53,7 +61,7 @@ const server = Bun.serve({
       ].map((s) => new Netmask(s));
 
       try {
-        if (allowed.some((a) => a.contains(reqIP?.address ?? ""))) {
+        if (allowed.some((a) => a.contains(reqIP ?? ""))) {
           const spell = "/views/spell.html";
           return new Response(Bun.file(import.meta.dir + spell));
         }
