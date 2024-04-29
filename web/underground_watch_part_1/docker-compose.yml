@@ -1,0 +1,7 @@
+services:
+
+  app:
+    image: ghcr.io/cybermouflons/ccsc2024/underground_watch_part_1:latest # Add in prod
+    build: ./setup/
+    ports:
+      - 3001:80

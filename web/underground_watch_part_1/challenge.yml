@@ -1,0 +1,28 @@
+name: "Underground Watch - Part 1" 
+author: "sAINT_barber"
+category: web
+
+description: |
+  The Andromeda Initiative's surveillance application has been hacked by OrionTech. They managed to gain access to our server and left a note in the root (`/`) directory. 
+  We need you to find the vulnerability and report back how they hacked us.
+
+
+value: 500
+type: dynamic_docker
+extra:
+  initial: 500
+  minimum: 100
+  decay: 50
+  redirect_type: http
+  compose_stack: !filecontents docker-compose.yml
+
+
+flags:
+  - CCSC{f1l3_upl04d_47t4ck5_mu5t_b3_570pp3d}
+
+tags:
+  - web
+  - easy
+
+state: visible
+version: "0.1"
