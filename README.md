@@ -25,6 +25,14 @@ Although some of the challenges may run as is, it is recommended that you have d
 
 
 
+### forensics
+
+| Name | Author |
+| ---- | ------ |
+| [Underground Watch - Part 2](./forensics/underground_watch_part_2) | sAINT_barber |
+
+
+
 ### misc
 
 | Name | Author |
@@ -63,6 +71,7 @@ Although some of the challenges may run as is, it is recommended that you have d
 | [Arcane Nebula](./web/arcane-nebula) | koks |
 | [Cross Checked Report](./web/cross-checked-report) | YetAnotherAlt123 |
 | [Microbuns](./web/microbuns) | koks |
+| [Underground Watch - Part 1](./web/underground_watch_part_1) | sAINT_barber |
 | [Warriors Tech Shop](./web/warriors_tech_shop) | sAINT_barber |
 
 
