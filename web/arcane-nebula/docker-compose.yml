@@ -2,6 +2,7 @@ version: '3'
 services:
   arcane-nebula:
     image: ghcr.io/cybermouflons/ccsc2024/arcane-nebula:latest
+    restart: always
     build: ./setup/
     ports:
       - 3000:3000
