@@ -38,7 +38,9 @@ const server = Bun.serve({
         ?.split(",")
         .map((x) => x.trim());
 
-      const reqIP = xff ? xff[xff?.length - 1] : server.requestIP(req)?.address;
+      const clientIP = xff
+        ? xff[xff?.length - 1]
+        : server.requestIP(req)?.address;
 
       const allowed = [
         "103.21.244.0/22",
@@ -61,7 +63,7 @@ const server = Bun.serve({
       ].map((s) => new Netmask(s));
 
       try {
-        if (allowed.some((a) => a.contains(reqIP ?? ""))) {
+        if (allowed.some((a) => a.contains(clientIP ?? ""))) {
           const spell = "/views/spell.html";
           return new Response(Bun.file(import.meta.dir + spell));
         }
