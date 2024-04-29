@@ -1,0 +1,30 @@
+name: "Asteroid Wars"
+author: "sAINT_barber"
+category: forensics
+
+description: |
+  We managed to hack into OrionTechs internal network and recorded their secret meeting.
+  The audio file must contain some other information, something more meta then what we have now.
+
+
+value: 500
+type: dynamic
+extra:
+  initial: 500
+  minimum: 100
+  decay: 50
+
+
+flags:
+  - CCSC{1f_th3_4ud10_d035n7_h3lp_ch3ck_m3t4d47a!!!TINKGI!}
+
+tags:
+  - forensics
+  - beginner
+
+# If challenge requires public files add here
+files:
+  - "public/internal_communication.mp3"
+
+state: visible
+version: "0.1"
