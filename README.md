@@ -55,6 +55,7 @@ Although some of the challenges may run as is, it is recommended that you have d
 | [hijack](./pwn/hijack) | s3nn |
 | [Infiltration](./pwn/infiltration) | neo |
 | [Model Scan](./pwn/model-scan) | neo |
+| [Spilled](./pwn/spilled) | neo |
 
 
 
