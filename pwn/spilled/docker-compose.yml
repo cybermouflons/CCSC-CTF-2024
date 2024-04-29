@@ -1,0 +1,15 @@
+version: "3.7"
+
+services:
+  challenge:
+    image: ghcr.io/cybermouflons/ccsc2024/spilled:latest
+    restart: always
+    ports:
+      - 1337:1337
+    tty: true
+    stdin_open: true
+    build:
+      context: ./setup
+      dockerfile: Dockerfile
+      labels:
+        ctf.challenge.name: spilled

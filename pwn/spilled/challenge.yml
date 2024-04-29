@@ -1,0 +1,28 @@
+name: "Spilled"
+author: "neo"
+category: pwn
+
+description: |
+  Project Echo is training a new AI model, trying to make it the best C developer.
+  It's still learning how to read input though, and it's spilling it all over the buffers...
+
+value: 500
+type: dynamic_docker
+extra:
+  initial: 500
+  minimum: 100
+  decay: 25
+  redirect_type: direct
+  compose_stack: !filecontents docker-compose.yml
+
+flags:
+  - CCSC{o0ps_1_sp1ll3d_4_f3w_byt3s}
+
+tags:
+  - begginer
+
+files:
+  - "public/spilled"
+
+state: visible
+version: "0.1"
