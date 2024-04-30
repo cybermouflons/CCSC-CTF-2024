@@ -34,6 +34,7 @@ Although some of the challenges may run as is, it is recommended that you have d
 | [HIDden-3](./forensics/HIDden-3) | s3nn |
 | [Asteroid Wars](./forensics/asteroid_wars) | sAINT_barber |
 | [Forensic Trace Process](./forensics/forensic_trace_process) | sAINT_barber |
+| [Galactic Connection](./forensics/galactic-connection) | En3rRe |
 | [Hidden Horizons](./forensics/hidden-horizons) | s3nn |
 | [Orion Lsassault](./forensics/orion-lsassault) | rok0s |
 | [Underground Watch - Part 2](./forensics/underground_watch_part_2) | sAINT_barber |
