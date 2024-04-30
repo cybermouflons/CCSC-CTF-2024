@@ -1,0 +1,33 @@
+name: "TLV"
+author: 
+  - "s3nn" 
+  - "neo"
+  - "chatgpt"
+
+category: reverse
+
+description: |
+  As an engineer for Andromeda, you are entrusted with the pivotal task of deciphering "Technological Labyrinth Vanguard", an obscure and long-forgotten network protocol embedded within the critical systems of Project Echo, the clandestine project spearheaded by OrionTech. Suspected to harbor vulnerabilities, TLV poses a significant threat to The Andromeda Initiative's mission to dismantle Project Echo and neutralize their nemesis. Your objective is to reverse engineer of TLV, identify its weaknesses, and devise a strategy to exploit them, thus crippling Project Echo and securing victory for The Andromeda Initiative.
+
+value: 500
+type:  dynamic_docker
+extra:
+  initial: 500
+  minimum: 100
+  decay: 25
+  redirect_type: direct
+  compose_stack: !filecontents docker-compose.yml
+
+flags:
+  - CCSC{Fr3aking_H4te_Revers1ng_W1thout_Symb0ls}
+
+tags:
+  - reverse
+  - medium
+  - hard
+
+files:
+  - "public/license"
+
+state: visible
+version: "0.1"
