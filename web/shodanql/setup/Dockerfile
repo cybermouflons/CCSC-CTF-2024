@@ -11,14 +11,9 @@ COPY middleware/ middleware/
 COPY server.js server.js
 COPY database.js database.js
 
-
-# COPY database.db database.db
-
-
 RUN npm install
 
+EXPOSE 3003
+# CMD ["npm", "run", "dev"] # Develpment only
 
-EXPOSE 3000
-CMD ["npm", "run", "dev"] # Develpment only
-
-# CMD ["npm", "run", "start"] # prod
+CMD ["npm", "run", "start"] # prod

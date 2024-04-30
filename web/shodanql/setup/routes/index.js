@@ -30,7 +30,7 @@ router.get('/', async (req, res) => {
 
 });
 
-router.get('/admin',isAdmin, (req, res) => {
+router.get('/admin', (req, res) => {
 
     const flag = process.env.flag
 
