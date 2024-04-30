@@ -1,12 +1,12 @@
-# HIDden-3
+# Orion Lsassault
 
 
 **Category**: forensics
 
-**Author**: s3nn
+**Author**: rok0s
 
 ## Description
 
-You are thrust into a clandestine digital realm, where enigmatic forces threaten global stability. As a recruit of an elite cyber task force, your mission is to navigate the shadowy depths of encrypted networks. Unravel the mysteries of covert communications, decrypt encrypted traffic, and decipher the intentions behind cryptic commands. Amidst the chaos, you'll confront the challenge of dissecting obscure digital artifacts, piecing together their secrets to safeguard the digital frontier. Are you prepared to dive into the unknown and emerge as a master of the digital domain?
+During a late-night operation, your team acquired a crucial process dump from the personal computer of a lead engineer at OrionTech. This engineer, known for their pivotal role in developing Project Echo’s. This dump contains fleeting shadows of authentication tokens and session details that could be the key to unraveling the entire architecture of Project Echo. Can you find their machine password?
 
 
