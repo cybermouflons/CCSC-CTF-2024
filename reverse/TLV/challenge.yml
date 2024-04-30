@@ -27,7 +27,7 @@ tags:
   - hard
 
 files:
-  - "public/license"
+  - "public/tlv"
 
 state: visible
 version: "0.1"
