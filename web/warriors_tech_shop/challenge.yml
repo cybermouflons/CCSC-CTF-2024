@@ -19,8 +19,7 @@ flags:
   - CCSC{w3_f0rg3_4nd_r3b1nd_0ur_0wn_t00ls}
 
 tags:
-  - web
-  - medium
+  - hard
 
 state: visible
 version: "0.1"
