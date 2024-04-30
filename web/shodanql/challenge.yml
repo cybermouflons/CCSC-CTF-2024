@@ -1,0 +1,28 @@
+name: "ShodanQL" 
+author: "sAINT_barber"
+category: web
+
+description: |
+  We found this website that seems to list all systems OrionTech as owned.
+  Can you access the admin page and take the site down for good?
+
+
+value: 500
+type: dynamic_docker
+extra:
+  initial: 500
+  minimum: 100
+  decay: 25
+  redirect_type: http
+  compose_stack: !filecontents docker-compose.yml
+
+
+flags:
+  - CCSC{pwn1nG_w1th_SQL1_1nj3ct10n_s1nc3_1998}
+
+tags:
+  - beginner
+
+
+state: visible
+version: "0.1"
