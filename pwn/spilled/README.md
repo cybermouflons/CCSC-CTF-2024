@@ -5,7 +5,7 @@
 
 **Category**: pwn
 
-**Author**: neo
+**Author**: neo + s3nn
 
 ## Description
 
