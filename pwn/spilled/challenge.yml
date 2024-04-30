@@ -1,5 +1,7 @@
 name: "Spilled"
-author: "neo"
+author: 
+- "neo"
+- "s3nn"
 category: pwn
 
 description: |
