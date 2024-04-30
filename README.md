@@ -69,7 +69,7 @@ Although some of the challenges may run as is, it is recommended that you have d
 | Name | Author |
 | ---- | ------ |
 | [Ancient VM](./reverse/ancient-vm) | neo |
-| [License Ops](./reverse/license-ops) | s3nn |
+| [Licensed Ops](./reverse/license-ops) | s3nn |
 
 
 
