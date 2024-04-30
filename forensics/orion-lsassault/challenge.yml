@@ -1,0 +1,26 @@
+name: "Orion Lsassault"
+author: "rok0s"
+category: forensics
+
+description: |
+  During a late-night operation, your team acquired a crucial process dump from the personal computer of a lead engineer at OrionTech. This engineer, known for their pivotal role in developing Project Echo’s. This dump contains fleeting shadows of authentication tokens and session details that could be the key to unraveling the entire architecture of Project Echo. Can you find their machine password?
+
+value: 500
+type: dynamic
+extra:
+  initial: 500
+  minimum: 100
+  decay: 25
+
+flags:
+  - CCSC{P455w0rds_4r3_n0t_s4F3_fr0m_duMp5!!!}
+
+tags:
+  - forensics
+  - easy
+
+files:
+  - "public/lsassault.zip"
+
+state: visible
+version: "0.1"

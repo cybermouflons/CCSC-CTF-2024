@@ -1,0 +1,1 @@
+The challenge was created by taking a process dump of the lsass.exe process from a Windows11 machine. 

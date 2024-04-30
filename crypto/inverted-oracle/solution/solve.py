@@ -2,8 +2,8 @@ from itertools import cycle
 
 from pwn import *
 
-host = "localhost"
-port = 13373
+host = "challenges.cybermouflons.com"
+port = 10092
 conn = remote(host, port)
 block_size = 16
 
