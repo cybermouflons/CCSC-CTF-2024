@@ -30,5 +30,5 @@ files:
   - "public/server.py"
   - "public/gen_part1.py"
 
-state: hidden
+state: visible
 version: "0.1"
