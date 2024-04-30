@@ -17,6 +17,7 @@ flags:
 
 tags:
   - forensics
+  - reversing
 
 files:
   - "public/inject.bin"
