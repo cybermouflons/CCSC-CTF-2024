@@ -9,6 +9,7 @@ WORKDIR /root
 COPY license .
 COPY flag.txt .
 
+# execute permissions
 RUN chmod 755 license
 
 EXPOSE 1337
