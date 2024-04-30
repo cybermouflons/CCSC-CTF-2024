@@ -44,6 +44,7 @@ Although some of the challenges may run as is, it is recommended that you have d
 
 | Name | Author |
 | ---- | ------ |
+| [Armored Up](./misc/armored-up) | neo |
 | [Metadata Matters](./misc/metadata-matters) | YetAnotherAlt123 |
 | [Password Keep](./misc/password-keep) | YetAnotherAlt123 |
 | [Superguesser Part 1](./misc/superguesser) | koks |
