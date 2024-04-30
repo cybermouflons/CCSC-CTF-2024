@@ -29,6 +29,9 @@ Although some of the challenges may run as is, it is recommended that you have d
 
 | Name | Author |
 | ---- | ------ |
+| [HIDden-1](./forensics/HIDden-1) | s3nn |
+| [HIDden-2](./forensics/HIDden-2) | s3nn |
+| [HIDden-3](./forensics/HIDden-3) | s3nn |
 | [Asteroid Wars](./forensics/asteroid_wars) | sAINT_barber |
 | [Forensic Trace Process](./forensics/forensic_trace_process) | sAINT_barber |
 | [Underground Watch - Part 2](./forensics/underground_watch_part_2) | sAINT_barber |
