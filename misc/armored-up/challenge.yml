@@ -1,0 +1,33 @@
+name: "Armored Up"
+author: "neo"
+category: misc
+
+description: |
+  You managed to exfiltrate a super secret Project Echo file, but it's really
+  well protected. Can you figure out the correct password?
+
+  Note:
+    $ python3 --version
+    Python 3.11.2
+
+value: 500
+type: dynamic_docker
+extra:
+  initial: 500
+  minimum: 100
+  decay: 25
+  redirect_type: direct
+  compose_stack: !filecontents docker-compose.yml
+
+flags:
+  - CCSC{pr0ject_3cho_let_th3ir_gu4rd_d0wn_ag4in}
+
+tags:
+  - misc
+  - medium
+
+files:
+  - "public/armored_up.tar.gz"
+
+state: visible
+version: "0.1"
