@@ -6,16 +6,14 @@ description: |
   Welcome to the Warriors Tech Shop, your one-stop shop for hacker essentials. Explore our selection of cutting-edge tools designed to aid you in the shadow war against OrionTech's Project Echo.
   You might be able to also purchase some secrets.
 
-
 value: 500
 type: dynamic_docker
 extra:
   initial: 500
   minimum: 100
-  decay: 50
+  decay: 25
   redirect_type: http
   compose_stack: !filecontents docker-compose.yml
-
 
 flags:
   - CCSC{w3_f0rg3_4nd_r3b1nd_0ur_0wn_t00ls}

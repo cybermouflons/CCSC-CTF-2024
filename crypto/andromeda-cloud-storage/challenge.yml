@@ -14,7 +14,7 @@ type: dynamic_docker
 extra:
   initial: 500
   minimum: 100
-  decay: 50
+  decay: 25
   redirect_type: direct
   compose_stack: !filecontents docker-compose.yml
 

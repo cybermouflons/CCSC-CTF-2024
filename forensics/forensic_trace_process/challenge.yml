@@ -6,14 +6,12 @@ description: |
   We have the following pcap from OrionTech's internal network. 
   Could you analyze it and report back with any sensitive information found?
 
-
 value: 500
 type: dynamic
 extra:
   initial: 500
   minimum: 100
-  decay: 50
-
+  decay: 25
 
 flags:
   - CCSC{4n4lyz1ng_F0r_P4ssw0rds_4nd_th3n_f0r_f1l3s}
@@ -28,4 +26,3 @@ files:
 
 state: visible
 version: "0.1"
-

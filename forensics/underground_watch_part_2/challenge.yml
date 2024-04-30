@@ -1,4 +1,4 @@
-name: "Underground Watch - Part 2" 
+name: "Underground Watch - Part 2"
 author: "sAINT_barber"
 category: forensics
 
@@ -8,16 +8,14 @@ description: |
 
   Note: Solution to Underground Watch - Part 1 is required to solve this challenge
 
-
 value: 500
 type: dynamic_docker
 extra:
   initial: 500
   minimum: 100
-  decay: 50
+  decay: 25
   redirect_type: http
   compose_stack: !filecontents docker-compose.yml
-
 
 flags:
   - CCSC{tuNn3L1n9_w17H_iMP3rf3c7_f0rw4rd_53cr3Cy}
