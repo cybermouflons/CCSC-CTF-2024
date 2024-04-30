@@ -25,6 +25,8 @@ tags:
 
 files:
   - "public/tlv"
+  - "public/Dockerfile"
+  - "public/flag.txt"
 
 state: visible
 version: "0.1"
