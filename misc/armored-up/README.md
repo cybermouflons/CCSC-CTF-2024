@@ -13,8 +13,7 @@ You managed to exfiltrate a super secret Project Echo file, but it's really
 well protected. Can you figure out the correct password?
 
 Note:
-  $ python3 --version
-  Python 3.11.2
+  Python 3.11.2 (default in Debian 12)
 
 
 
