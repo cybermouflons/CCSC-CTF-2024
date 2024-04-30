@@ -1,0 +1,30 @@
+name: "Galactic Connection"
+author: "En3rRe"
+category: forensics
+
+description: |
+  An undercover Andromeda hacker was able to sneak in a Project Echo facility and sniff
+  some packets. Can you manage to get access to their galactic network?
+
+  Note: The flag is the domain the Project Echo agents are trying to access. To submit, remove ".com" and wrap it with "CCSC{}".
+
+value: 500
+type: dynamic
+extra:
+  initial: 500
+  minimum: 100
+  decay: 25
+
+flags:
+  - CCSC{wpa2_passwords_are_not_secure}
+
+tags:
+  - forensics
+  - easy
+
+# If challenge requires public files add here
+files:
+  - "public/galactic_connection.pcapng"
+
+state: visible
+version: "0.1"
