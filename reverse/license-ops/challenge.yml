@@ -11,6 +11,8 @@ extra:
   initial: 500
   minimum: 100
   decay: 25
+  redirect_type: direct
+  compose_stack: !filecontents docker-compose.yml
 
 flags:
   - CCSC{Y0ur_Rev3rsing_Journey_Just_st4rted}
