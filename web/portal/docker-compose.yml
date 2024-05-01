@@ -1,0 +1,11 @@
+version: "3.7"
+
+services:
+  challenge:
+    image: ghcr.io/cybermouflons/ccsc2024/portal:latest
+    restart: always
+    ports:
+      - 3000:3000
+    build:
+      context: ./setup
+      dockerfile: Dockerfile

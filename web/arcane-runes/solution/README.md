@@ -1,4 +1,4 @@
-# Arcane Nebula
+# Arcane Runes
 
 ## Solution
 

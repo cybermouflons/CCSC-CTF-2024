@@ -1,11 +1,9 @@
-name: "Arcane Nebula"
-author: "koks"
+name: "Portal"
+author: "YetAnotherAlt123"
 category: web
 
 description: |
-  We believe the machines are trying to waste our time.
-
-  Nevertheless, we have to persevere; retrieve the flag!
+  We found an admin portal. Do we really need to say more?
 
 value: 500
 type: dynamic_docker
@@ -17,11 +15,11 @@ extra:
   compose_stack: !filecontents docker-compose.yml
 
 flags:
-  - CCSC{myst1cal_cosplAI_0r_wAIst3_of_tAIm3}
+  - CCSC{s1d3_t0_s1d3_4ND_fr0n7_tO_b4ck}
 
 tags:
   - web
-  - medium
+  - hard
 
 state: visible
 version: "0.1"

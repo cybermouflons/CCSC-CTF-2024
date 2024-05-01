@@ -1,7 +1,7 @@
 version: '3'
 services:
-  arcane-nebula:
-    image: ghcr.io/cybermouflons/ccsc2024/arcane-nebula:latest
+  arcane-runes:
+    image: ghcr.io/cybermouflons/ccsc2024/arcane-runes:latest
     restart: always
     build: ./setup/
     ports:
