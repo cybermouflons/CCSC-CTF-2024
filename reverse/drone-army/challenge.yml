@@ -1,0 +1,25 @@
+name: "Drone Army"
+author: "rok0s"
+category: reverse
+
+description: |
+  OrionTech's drones are controlled by a highly encrypted program that autonomously manages surveillance operations. Your goal is to reverse engineer this program to uncover its internal mechanisms and secrets, allowing you to hijack control of the drone fleet.
+
+value: 500
+type: dynamic
+extra:
+  initial: 500
+  minimum: 100
+  decay: 25
+
+flags:
+  - reverse/arm_bkp/poc.py
+
+tags:
+  - reverse
+
+files:
+  - "public/drone_army.s"
+
+state: visible
+version: "0.1"
