@@ -169,7 +169,7 @@ fn handle_client(mut stream: TcpStream) {
 
                 while offset + ((TYPE_LENGTH + LENGTH_LENGTH) as usize) <= n {
 
-                    if let Some(header) = TLVHeader::from_bytes(&bytes) {
+                    if let Some(header) = TLVHeader::from_bytes(&bytes[offset..]) {
 
                         offset += (TYPE_LENGTH + LENGTH_LENGTH) as usize;
                         let packet_bytes = &bytes[offset..];
