@@ -16,7 +16,7 @@ extra:
   compose_stack: !filecontents docker-compose.yml
 
 flags:
-  - CCSC{o0ps_1_sp1ll3d_4_f3w_byt3s}
+  - CCSC{00ps_1_sp1ll3d_4_f3w_byt3s}
 
 tags:
   - begginer
