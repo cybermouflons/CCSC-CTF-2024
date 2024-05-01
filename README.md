@@ -51,6 +51,7 @@ Although some of the challenges may run as is, it is recommended that you have d
 | [Superguesser Part 1](./misc/superguesser) | koks |
 | [Superguesser Part 2](./misc/superguesser_2) | koks |
 | [Superguesser Part 3](./misc/superguesser_3) | koks |
+| [Welcome to the CCSC](./misc/welcome_to_ccsc24) | sAINT_barber |
 
 
 
