@@ -1,0 +1,25 @@
+name: "Portal"
+author: "YetAnotherAlt123"
+category: web
+
+description: |
+  We found an admin portal. Do we really need to say more?
+
+value: 500
+type: dynamic_docker
+extra:
+  initial: 500
+  minimum: 100
+  decay: 25
+  redirect_type: http
+  compose_stack: !filecontents docker-compose.yml
+
+flags:
+  - CCSC{s1d3_t0_s1d3_4ND_fr0n7_tO_b4ck}
+
+tags:
+  - web
+  - hard
+
+state: visible
+version: "0.1"
