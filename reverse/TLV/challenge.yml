@@ -7,7 +7,7 @@ description: |
   As an engineer for Andromeda, you are entrusted with the pivotal task of deciphering "Technological Labyrinth Vanguard", an obscure and long-forgotten network protocol embedded within the critical systems of Project Echo, the clandestine project spearheaded by OrionTech. Suspected to harbor vulnerabilities, TLV poses a significant threat to The Andromeda Initiative's mission to dismantle Project Echo and neutralize their nemesis. Your objective is to reverse engineer of TLV, identify its weaknesses, and devise a strategy to exploit them, thus crippling Project Echo and securing victory for The Andromeda Initiative.
 
 value: 500
-type:  dynamic_docker
+type: dynamic_docker
 extra:
   initial: 500
   minimum: 100
@@ -28,5 +28,5 @@ files:
   - "public/Dockerfile"
   - "public/flag.txt"
 
-state: visible
+state: hidden
 version: "0.1"
