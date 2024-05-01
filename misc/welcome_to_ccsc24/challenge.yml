@@ -1,0 +1,23 @@
+name: "Welcome to the CCSC"
+author: "sAINT_barber"
+category: misc
+
+description: |
+  Welcome to the CCSC 2024, I hope you read the #rules!
+
+value: 500
+type: dynamic
+extra:
+  initial: 500
+  minimum: 100
+  decay: 25
+
+flags:
+  - CCSC{rul3s_ar3_n0t_m3ant_t0_b3_br0k3n!}
+
+tags:
+  - sanity check
+
+
+state: visible
+version: "0.1"
