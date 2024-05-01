@@ -1,4 +1,4 @@
-# Welcome to the CCSC
+# Welcome
 
 
 **Category**: misc
