@@ -1,0 +1,16 @@
+
+
+services:
+
+  webapp:
+    image: ghcr.io/cybermouflons/ccsc2024/shodanql_revenge:latest # Add in prod
+    build: ./setup/
+    ports:
+      - 3003:3003 # Port should be changed
+    environment:
+      admin_username: admin
+      admin_password: Super_Secret_P@ssw0rd!@project-Echo_
+      flag: CCSC{pwn1nG_w1th_SQL1_1nj3ct10n_s1nc3_1998_for_real_this_time}
+
+
+
