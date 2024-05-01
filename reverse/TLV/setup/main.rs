@@ -162,7 +162,7 @@ fn handle_client(mut stream: TcpStream) {
                 println!("Received {n} bytes");
 
                 let mut bytes = Vec::new();
-                bytes.extend_from_slice(&incomplete_packet[..]);
+                bytes.append(&mut incomplete_packet);
                 bytes.extend_from_slice(&buffer[..n]);
 
                 let mut offset = 0;
