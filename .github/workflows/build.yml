@@ -88,16 +88,14 @@ jobs:
           IFS=' ' read -r -a challenge_dirs <<< "${{ steps.modified-chalenges.outputs.dirs }}"
           for challenge_dir in "${challenge_dirs[@]}"; do
             docker compose -f $challenge_dir/docker-compose.yml build
-            docker compose -f $challenge_dir/docker-compose.yml push
-            docker compose -f $challenge_dir/docker-compose.yml config | awk '/image:/ {print $2}' | xargs -r docker rmi
           done
       
-      # - name: Push challenges
-      #   run: |
-      #     IFS=' ' read -r -a challenge_dirs <<< "${{ steps.modified-chalenges.outputs.dirs }}"
-      #     for challenge_dir in "${challenge_dirs[@]}"; do
-      #       docker compose -f $challenge_dir/docker-compose.yml push
-      #     done
+      - name: Push challenges
+        run: |
+          IFS=' ' read -r -a challenge_dirs <<< "${{ steps.modified-chalenges.outputs.dirs }}"
+          for challenge_dir in "${challenge_dirs[@]}"; do
+            docker compose -f $challenge_dir/docker-compose.yml push
+          done
   
       - name: Clear cache
         uses: actions/github-script@v6
