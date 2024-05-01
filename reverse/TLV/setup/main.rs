@@ -184,7 +184,7 @@ fn handle_client(mut stream: TcpStream) {
                         } else {
                             println!("Not enough bytes to construct packet");
                             let hoffset = offset - ((TYPE_LENGTH + LENGTH_LENGTH) as usize);
-                            incomplete_packet.extend_from_slice(&buffer[hoffset..]);
+                            incomplete_packet.extend_from_slice(&bytes[hoffset..]);
                             break;
                         }
 
