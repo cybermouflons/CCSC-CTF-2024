@@ -13,6 +13,8 @@ COPY flag.txt /app
 COPY app.py /app
 COPY app-dev-version-abccdef.py /app
 
+RUN echo '#app:x:999:999::/app:/bin/false' >> /etc/passwd
+
 EXPOSE 3000
 
 # Command to start services
