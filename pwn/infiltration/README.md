@@ -1,6 +1,6 @@
 # Infiltration
 
-[![Try in PWD](https://raw.githubusercontent.com/play-with-docker/stacks/master/assets/images/button.png)](https://labs.play-with-docker.com/?stack=https://raw.githubusercontent.com/cybermouflons/CCSC-CTF-2023/master/pwn/infiltration/docker-compose.yml)
+[![Try in PWD](https://raw.githubusercontent.com/play-with-docker/stacks/master/assets/images/button.png)](https://labs.play-with-docker.com/?stack=https://raw.githubusercontent.com/cybermouflons/CCSC-CTF-2024/master/pwn/infiltration/docker-compose.yml)
 
 
 **Category**: pwn
@@ -17,10 +17,10 @@ You finally managed to infiltrate Project Echo's systems, but it looks like they
 
 Launch challenge:
 ```
-curl -sSL https://raw.githubusercontent.com/cybermouflons/CCSC-CTF-2023/master/pwn/infiltration/docker-compose.yml | docker compose -f - up -d
+curl -sSL https://raw.githubusercontent.com/cybermouflons/CCSC-CTF-2024/master/pwn/infiltration/docker-compose.yml | docker compose -f - up -d
 ```
 
 Shutdown challenge:
 ```
-curl -sSL https://raw.githubusercontent.com/cybermouflons/CCSC-CTF-2023/master/pwn/infiltration/docker-compose.yml | docker compose -f - down
+curl -sSL https://raw.githubusercontent.com/cybermouflons/CCSC-CTF-2024/master/pwn/infiltration/docker-compose.yml | docker compose -f - down
 ```

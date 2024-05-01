@@ -72,6 +72,7 @@ Although some of the challenges may run as is, it is recommended that you have d
 | ---- | ------ |
 | [TLV](./reverse/TLV) | s3nn + neo + chatgpt |
 | [Ancient VM](./reverse/ancient-vm) | neo |
+| [Drone Army](./reverse/drone-army) | rok0s |
 | [Licensed Ops](./reverse/license-ops) | s3nn |
 
 

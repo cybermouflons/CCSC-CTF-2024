@@ -1,6 +1,6 @@
 # Superguesser Part 1
 
-[![Try in PWD](https://raw.githubusercontent.com/play-with-docker/stacks/master/assets/images/button.png)](https://labs.play-with-docker.com/?stack=https://raw.githubusercontent.com/cybermouflons/CCSC-CTF-2023/master/misc/superguesser/docker-compose.yml)
+[![Try in PWD](https://raw.githubusercontent.com/play-with-docker/stacks/master/assets/images/button.png)](https://labs.play-with-docker.com/?stack=https://raw.githubusercontent.com/cybermouflons/CCSC-CTF-2024/master/misc/superguesser/docker-compose.yml)
 
 
 **Category**: misc
@@ -17,10 +17,10 @@ The machines live and breathe in binary. Search for ways to use that against the
 
 Launch challenge:
 ```
-curl -sSL https://raw.githubusercontent.com/cybermouflons/CCSC-CTF-2023/master/misc/superguesser/docker-compose.yml | docker compose -f - up -d
+curl -sSL https://raw.githubusercontent.com/cybermouflons/CCSC-CTF-2024/master/misc/superguesser/docker-compose.yml | docker compose -f - up -d
 ```
 
 Shutdown challenge:
 ```
-curl -sSL https://raw.githubusercontent.com/cybermouflons/CCSC-CTF-2023/master/misc/superguesser/docker-compose.yml | docker compose -f - down
+curl -sSL https://raw.githubusercontent.com/cybermouflons/CCSC-CTF-2024/master/misc/superguesser/docker-compose.yml | docker compose -f - down
 ```

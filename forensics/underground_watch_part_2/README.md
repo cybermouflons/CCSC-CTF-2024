@@ -1,6 +1,6 @@
 # Underground Watch - Part 2
 
-[![Try in PWD](https://raw.githubusercontent.com/play-with-docker/stacks/master/assets/images/button.png)](https://labs.play-with-docker.com/?stack=https://raw.githubusercontent.com/cybermouflons/CCSC-CTF-2023/master/forensics/underground_watch_part_2/docker-compose.yml)
+[![Try in PWD](https://raw.githubusercontent.com/play-with-docker/stacks/master/assets/images/button.png)](https://labs.play-with-docker.com/?stack=https://raw.githubusercontent.com/cybermouflons/CCSC-CTF-2024/master/forensics/underground_watch_part_2/docker-compose.yml)
 
 
 **Category**: forensics
@@ -20,10 +20,10 @@ Note: Solution to Underground Watch - Part 1 is required to solve this challenge
 
 Launch challenge:
 ```
-curl -sSL https://raw.githubusercontent.com/cybermouflons/CCSC-CTF-2023/master/forensics/underground_watch_part_2/docker-compose.yml | docker compose -f - up -d
+curl -sSL https://raw.githubusercontent.com/cybermouflons/CCSC-CTF-2024/master/forensics/underground_watch_part_2/docker-compose.yml | docker compose -f - up -d
 ```
 
 Shutdown challenge:
 ```
-curl -sSL https://raw.githubusercontent.com/cybermouflons/CCSC-CTF-2023/master/forensics/underground_watch_part_2/docker-compose.yml | docker compose -f - down
+curl -sSL https://raw.githubusercontent.com/cybermouflons/CCSC-CTF-2024/master/forensics/underground_watch_part_2/docker-compose.yml | docker compose -f - down
 ```
