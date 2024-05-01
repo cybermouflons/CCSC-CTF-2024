@@ -150,7 +150,6 @@ fn run_shell_command(command: &str, args: &[&str]) -> Result<Output, std::io::Er
 
 fn handle_client(mut stream: TcpStream) {
     let mut buffer = [0; 4096];
-    let mut incomplete_packet: Vec<u8> = Vec::new();
 
     loop {
         match stream.read(&mut buffer) {
@@ -160,12 +159,10 @@ fn handle_client(mut stream: TcpStream) {
                 println!("Received {n} bytes");
 
                 let mut bytes = Vec::new();
-                let mut offset = 0;
+                bytes.extend_from_slice(&buffer[..n]);
 
+                let mut offset = 0;
                 while offset < n {
-                    // Append any incomplete packet from previous reads
-                    bytes.extend_from_slice(&incomplete_packet);
-                    bytes.extend_from_slice(&buffer[..n]);
 
                     if let Some(header) = TLVHeader::from_bytes(&buffer) {
 
@@ -188,8 +185,6 @@ fn handle_client(mut stream: TcpStream) {
                         break; // Break the loop if the packet is invalid
                     }
                 }
-                // Store any incomplete packet for the next read
-                incomplete_packet = bytes[offset..].to_vec();
             }
             Ok(_) | Err(_) => {
                 println!("Client disconnected");
