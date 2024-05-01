@@ -13,7 +13,7 @@ extra:
   decay: 25
 
 flags:
-  - reverse/arm_bkp/poc.py
+  - CCSC{4rMy_0f_X0rs_R3v3r5eD!!}
 
 tags:
   - reverse
