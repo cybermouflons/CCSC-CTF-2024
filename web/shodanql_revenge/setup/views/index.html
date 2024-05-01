@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>PwnSearch</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+    <body style="background-color: rgb(243, 243, 243);" >
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container px-4 px-lg-5">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/">Home</a></li>
+                        {% if user.is_admin %}
+                            <li class="nav-item"><a class="nav-link" href="/admin">Admin</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
+                        {% else %}
+                            <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+                        {% endif %}
+                        
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Header-->
+        <header class="bg-dark py-1 m-5 rounded">
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="text-center text-white">
+                    <h4 class="fw-bolder">Welcome {{user.username}}</h4>
+                    <p class="lead">Use the below search field to check if your system has been pwned</p>
+                </div>
+            </div>
+        </header>
+
+
+        {% if error %}
+        <div class="alert alert-danger text-center container col-4" role="alert">
+            {{error}}
+        </div>
+        {% endif %}
+
+        <div class="row">
+            <div class="alert alert-secondary text-center container col-4" role="alert">
+                <form action="/" method="get" class="input-group rounded">
+                    <input name="ip" type="search" class="form-control rounded" placeholder="123.123.123.123" value="{{search}}"/>
+                    <span class="input-group-text border-0">
+                        <i class="fas fa-search"></i>
+                    </span>
+                </form>
+            </div>
+
+        </div>
+       
+
+        <div class="text-center container py-5" role="alert">
+
+            <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">IP Address</th>
+                    <th scope="col">Country</th>
+                    <th scope="col">City</th>
+                    <th scope="col">OS</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {% for system in systems %}
+                        <tr>
+                            <th scope="row">{{system.id}}</th>
+                            <td>{{system.ip_address}}</td>
+                            <td>{{system.country}}</td>
+                            <td>{{system.city}}</td>
+                            <td>{{system.os}}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+              </table>
+            
+        </div>
+        <!-- Section-->
+   
+        <!-- Footer-->
+        <footer class="footer mt-auto py-5 bg-dark">
+            <div class="container"><p class="m-0 text-center text-white">CCSC 2024 - CYberMouflons</p></div>
+        </footer>
+
+        
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <script src="https://kit.fontawesome.com/6289994de0.js" crossorigin="anonymous"></script>
+
+    </body>
+
+    
+</html>

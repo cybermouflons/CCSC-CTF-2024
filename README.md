@@ -87,6 +87,7 @@ Although some of the challenges may run as is, it is recommended that you have d
 | [Microbuns](./web/microbuns) | koks |
 | [Portal](./web/portal) | YetAnotherAlt123 |
 | [ShodanQL](./web/shodanql) | sAINT_barber |
+| [ShodanQL - Revenge](./web/shodanql_revenge) | sAINT_barber |
 | [Underground Watch - Part 1](./web/underground_watch_part_1) | sAINT_barber |
 | [Warriors Tech Shop](./web/warriors_tech_shop) | sAINT_barber |
 
