@@ -28,5 +28,5 @@ files:
   - "public/Dockerfile"
   - "public/flag.txt"
 
-state: public
+state: visible
 version: "0.1"
