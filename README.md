@@ -80,7 +80,7 @@ Although some of the challenges may run as is, it is recommended that you have d
 
 | Name | Author |
 | ---- | ------ |
-| [Arcane Nebula](./web/arcane-nebula) | koks |
+| [Arcane Runes](./web/arcane-runes) | koks |
 | [Cross Checked Report](./web/cross-checked-report) | YetAnotherAlt123 |
 | [Microbuns](./web/microbuns) | koks |
 | [ShodanQL](./web/shodanql) | sAINT_barber |
