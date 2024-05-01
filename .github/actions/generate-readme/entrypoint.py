@@ -34,7 +34,7 @@ def main():
         challenge = parse_challenge(directory)
         category = challenge["category"]
         challenge["dir"] = directory
-        challenge["docker_compose_url"] = urljoin("https://raw.githubusercontent.com/cybermouflons/CCSC-CTF-2023/master/", f"{directory}/docker-compose.yml")
+        challenge["docker_compose_url"] = urljoin("https://raw.githubusercontent.com/cybermouflons/CCSC-CTF-2024/master/", f"{directory}/docker-compose.yml")
         if category not in challenge_categories:
             challenge_categories[category] = []
         challenge_categories[category].append(challenge)
