@@ -33,6 +33,7 @@ Although some of the challenges may run as is, it is recommended that you have d
 | [HIDden-2](./forensics/HIDden-2) | s3nn |
 | [HIDden-3](./forensics/HIDden-3) | s3nn |
 | [Asteroid Wars](./forensics/asteroid_wars) | sAINT_barber |
+| [Attachment](./forensics/attachment) | Yet Another Alt |
 | [Forensic Trace Process](./forensics/forensic_trace_process) | sAINT_barber |
 | [Galactic Connection](./forensics/galactic-connection) | En3rRe |
 | [Hidden Horizons](./forensics/hidden-horizons) | s3nn |
