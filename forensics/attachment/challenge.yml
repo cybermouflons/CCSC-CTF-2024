@@ -1,0 +1,29 @@
+name: "Attachment"
+author: "Yet Another Alt"
+category: forensics
+
+description: |
+  One of our agents has received a suspicious attachment. Thankfully, we stopped them before they opened it.
+  
+  Have a look and let us know what's inside.
+
+value: 500
+type: dynamic
+extra:
+  initial: 500
+  minimum: 100
+  decay: 25
+
+flags:
+  - CCSC{Wh4t_1s_4_f1L3,_r341ly?}
+
+tags:
+  - forensics
+  - beginner
+
+# If challenge requires public files add here
+files:
+  - "public/MalDoc.xlsx"
+
+state: visible
+version: "0.1"
