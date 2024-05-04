@@ -9,7 +9,7 @@
 
 ## Description
 
-I may be silicon but I can stil stuff my RAM with buns and appreciate poetry.
+I may be silicon but I can still stuff my RAM with buns and appreciate poetry.
 
 
 
