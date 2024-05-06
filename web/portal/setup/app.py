@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import time
 from typing import Optional
 
 from time import sleep
@@ -12,7 +13,7 @@ from nicegui import Client, app, ui
 
 passwords = {'admin': 'adminpass123'}
 
-unrestricted_page_routes = {'/login'}  # Restrict /flag for prod
+unrestricted_page_routes = {'/login', '/loginfailed'}  # Restrict /flag for prod
 
 
 class AuthMiddleware(BaseHTTPMiddleware):
@@ -60,7 +61,8 @@ async def status_page() -> None:
         if path.endswith('/flag'):
             path = "/"
         async with httpx.AsyncClient() as client:
-            r = await client.get("http://localhost:8888" + path, follow_redirects=True)  # TODO: point this to prod... At least it works hahaha
+            r = await client.get("http://localhost:8888" + path,
+                                 follow_redirects=True)  # TODO: point this to prod... At least it works hahaha
         content_label.set_text("Status for " + path + " : " + str(r.status_code) + " " + str(r.content))
     except Exception as e:
         content_label.set_text("Failed getting status for " + app.storage.user.get('referrer_path') + " : " + str(e))
@@ -72,25 +74,53 @@ async def flag_page() -> None:
     ui.label("Port from dev once secure.")  # ui.label(f"Flag: {os.getenv('FLAG')}")
 
 
+t1 = 0
+t2 = 0
+
+
+@ui.page('/loginfailed')
+async def loginfailed() -> None:
+    global t1
+    global t2
+
+    def goback():
+        ui.navigate.to("/login")  # go back to where the user wanted to go
+
+    with ui.card().classes('absolute-center'):
+        ui.label("Login Failed")
+        ui.label(f"Time attempted: {t1}")
+        ui.label(f"Time failed: {t2}")
+        ui.button('Go Back', on_click=goback)
+
+
 @ui.page('/login')
 def login() -> Optional[RedirectResponse]:
     def try_login() -> None:  # local function to avoid passing username and password as arguments
+        global t1
+        global t2
+
+        t1 = time.time_ns()
+        t2 = 0
+
         pass_val = passwords.get(username.value.lower())
         authenticated = True
         for i in range(len(pass_val)):
             try:
                 if pass_val[i] == password.value[i]:
                     print("Let it be known, that a character is matched!")
-                    sleep(0.2)  # Let the feeling sink in
+                    sleep(0.20)  # Let the feeling sink in
                 else:
                     authenticated = False
-                    ui.notify('Wrong username or password', color='negative')
+                    #ui.notify('Wrong username or password', color='negative')
             except Exception:
                 authenticated = False
-                ui.notify('Wrong username or password', color='negative')
+                t2 = time.time_ns()
+                #ui.notify('Wrong username or password', color='negative')
         if authenticated:
             app.storage.user.update({'username': username.value, 'authenticated': True})
             ui.navigate.to(app.storage.user.get('referrer_path', '/'))  # go back to where the user wanted to go
+        else:
+            ui.navigate.to("/loginfailed")
 
         """
         Bad code.
