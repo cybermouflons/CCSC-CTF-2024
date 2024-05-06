@@ -17,6 +17,9 @@ extra:
 flags:
   - CCSC{s1d3_t0_s1d3_4ND_fr0n7_tO_b4ck}
 
+files:
+  - public/login_snippet.txt
+
 tags:
   - web
   - hard
