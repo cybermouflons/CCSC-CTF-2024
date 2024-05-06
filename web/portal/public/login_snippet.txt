@@ -1,0 +1,17 @@
+def login() -> Optional[RedirectResponse]:
+    def try_login() -> None:  
+        pass_val = passwords.get(username.value.lower())
+        authenticated = True
+        for i in range(len(pass_val)):
+            try:
+                if pass_val[i] == password.value[i]:
+                    sleep(0.2)  # Let the feeling sink in
+                else:
+                    authenticated = False
+                    ui.notify('Wrong username or password', color='negative')
+            except Exception:
+                authenticated = False
+                ui.notify('Wrong username or password', color='negative')
+        if authenticated:
+            app.storage.user.update({'username': username.value, 'authenticated': True})
+            ui.navigate.to(app.storage.user.get('referrer_path', '/'))
