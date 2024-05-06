@@ -21,6 +21,9 @@ extra:
 flags:
   - ccsc{congrats.here.is.a.s1d3.ch4nNel?!}
 
+hints:
+  - The `Encoder` is a custom, naive compression function for the ASCII (7-bit) alphabet. It might help if you read about some well used compression algorithms.
+
 tags:
   - crypto
   - reverse
