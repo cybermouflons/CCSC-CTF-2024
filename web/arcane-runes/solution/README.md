@@ -8,9 +8,15 @@ Can be found in the HTML source code or by clicking the tiny margin on the right
 
 ### Bypassing the IP Address allowlist
 
-// TODO
+The allowed IP addresses are all reserved as [TEST-NET](https://en.wikipedia.org/wiki/Reserved_IP_addresses) so getting one of those addresses shouldn't be feasible. However since the code looks for the client IP address in the `X-Forwarded-For` header, we can spoof it by adding any IP address we want e.g. `curl $CHALLENGE_URL -H 'X-Forwarded-For: 233.252.0.0'`
 
 ### Obfuscation
+
+This is how the payload was obfuscated, the task here is to reverse the obfuscation.
+
+We can do that in a few ways, as long as we identify that the obfuscated code is valid Javascript -- this is a Web challenge after all.
+
+One approach would be to copy-paste the obfuscated code in a browser's dev console and step through it via the debugger. The debugger should desplay the readable Javascript code. We'll have to do this one more time for the obfuscated flag piece since it was obfuscated twice.
 
 👉 [Flag Payload](https://aem1k.com/transliterate.js/#%7B%22alphabet%22%3A%22iIloOyYzZpPq%22%2C%22code%22%3A%22console.debug%28%5C%22CCSC%7Bmyst1cal_cosplAI_0r_wAIst3_of_tAIm3%7D%5C%22%29%22%7D)
 
