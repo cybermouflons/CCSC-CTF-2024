@@ -11,8 +11,8 @@ During the reversing process participants should familiarise themselves with the
 
 In the first section of the program we can see line 19 loads the number 29 to the x4 register which is compared to the length of the input from the read system call (x3).
 
-If that's true the execution continues and byte with value 0x65 is loaded to register x3. Then the program enters a loop of 28 iterations (we see x5 = 0 compared to the length of the input (x3) which should be 29 at that point) and each byte from user input is loaded to the w6 register and xored with the previous character (w4 starts with 0x65 in this case). 
-This continues for all 29 bytes. In summaryu the program implements a simple XOR encryption where a rolling window of 2 characters are taken from the bytes defined in the data section and XORED together to make up the flag, which is checked against the user input. 
+If that's true the execution continues and byte with value 0x65 is loaded to register x3. Then the program enters a loop of 29 iterations (we see x5 = 0 compared to the length of the input (x3) which should be 29 at that point) and each byte from user input is loaded to the w6 register and xored with the previous character (w4 starts with 0x65 in this case). 
+This continues for all 29 bytes. In summary the program implements a simple XOR encryption where a rolling window of 2 characters are taken from the bytes defined in the data section and XORED together to make up the flag, which is checked against the user input. 
 
 Alternatively, players can take the bytes from the data section and get the XOR input differential (even without the leading 0x65 bytes) and they will get the flag. 
 
